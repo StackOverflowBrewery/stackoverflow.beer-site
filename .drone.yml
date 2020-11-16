@@ -1,0 +1,69 @@
+platform:
+  os: linux
+  arch: arm
+kind: pipeline
+type: docker
+name: default
+
+steps:
+- name: fetch
+  image: drone/git
+  commands:
+  - git fetch --tags
+  - git submodule update --recursive --remote
+
+- name: build pages
+  image: plugins/hugo
+  settings:
+    hugo_version: 0.78.1
+    validate: true
+    url: https://stackoverflow.beer
+    extended: false
+
+trigger:
+  event:
+    exclude:
+    - promote
+
+---
+platform:
+  os: linux
+  arch: arm
+
+kind: pipeline
+type: docker
+name: deploy-to-uberspace
+
+steps:
+- name: fetch
+  image: drone/git
+  commands:
+  - git fetch --tags
+  - git submodule update --recursive --remote
+
+- name: build pages
+  image: plugins/hugo
+  settings:
+    hugo_version: 0.78.1
+    validate: true
+    url: https://stackoverflow.beer
+    extended: false
+
+- name: Deploy to uberspace
+  image: appleboy/drone-scp
+  settings:
+    host: tillk.uber.space
+    username: tillk
+    target: /var/www/virtual/tillk/stackoverflow.beer/
+    source: 
+    - public/*
+    strip_components: 1
+    rm: true
+    key:
+      from_secret: uberspace_key
+
+trigger:
+  event:
+  - promote
+  target:
+  - production
