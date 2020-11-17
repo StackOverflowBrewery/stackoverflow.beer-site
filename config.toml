@@ -1,5 +1,5 @@
 baseURL = "https://stackoverflow.beer/"
-DefaultContentLanguage  = "en"
+DefaultContentLanguage  = "de"
 paginate                = 5
 pluralizeListTitles     = false
 title = "StackOverflow Brewery Dortmund"
@@ -81,7 +81,7 @@ theme = "hugo-future-imperfect-slim"
     weight            = 1
 
   [[menu.main]]
-    name              = "About"
+    name              = "Über"
     identifier        = "about"
     url               = "/about/"
     pre               = "<i class='far fa-id-card'></i>"
@@ -95,64 +95,64 @@ theme = "hugo-future-imperfect-slim"
     weight            = 3
 
   [[menu.main]]
-    name              = "Categories"
+    name              = "Kategorien"
     identifier        = "categories"
     url               = "/categories/"
     pre               = "<i class='fas fa-sitemap'></i>"
     weight            = 5
 
   [[menu.main]]
-    name              = "Contact"
+    name              = "Kontakt"
     identifier        = "contact"
     url               = "/contact/"
+    pre               = "<i class='far fa-envelope'></i>"
+    weight            = 6
+  
+  [[menu.main]]
+    name              = "Impressum"
+    identifier        = "about"
+    url               = "/about/"
     pre               = "<i class='far fa-envelope'></i>"
     weight            = 6
 
 [Languages]
 
+  [Languages.de]
+    LanguageCode        = "de"
+    LanguageName        = "Deutsch"
+    weight              = 1
+
   [Languages.en]
     LanguageCode        = "en"
     LanguageName        = "English"
-    weight              = 1
-
-  [Languages.de]
-    LanguageCode        = "de"
-    LanguageName        = "Deutsche"
     weight              = 2
-    [[Languages.de.menu.main]]
+    [[Languages.en.menu.main]]
       name              = "Home"
       identifier        = "home"
       url               = "/"
       pre               = "<i class='fas fa-home'></i>"
       weight            = 1
 
-    [[Languages.de.menu.main]]
-      name              = "Über"
+    [[Languages.en.menu.main]]
+      name              = "About"
       identifier        = "about"
       url               = "/about/"
       pre               = "<i class='far fa-id-card'></i>"
       weight            = 2
 
-    [[Languages.de.menu.main]]
+    [[Languages.en.menu.main]]
       name              = "Blog"
       identifier        = "blog"
       url               = "/blog/"
       pre               = "<i class='far fa-newspaper'></i>"
       weight            = 3
 
-    [[Languages.de.menu.main]]
-      name              = "Kategorien"
+    [[Languages.en.menu.main]]
+      name              = "Categories"
       identifier        = "categories"
       url               = "/categories/"
       pre               = "<i class='fas fa-sitemap'></i>"
       weight            = 5
-
-    [[Languages.de.menu.main]]
-      name              = "Impressum"
-      identifier        = "about"
-      url               = "/about/"
-      pre               = "<i class='far fa-envelope'></i>"
-      weight            = 6
 
 [social]
   # Coding Communities
