@@ -50,6 +50,7 @@ steps:
       from_secret: brewfather_apikey
   commands:
   - mkdir -p data/batches && cd bin && go run batches.go
+  - cd bin && go run scrape-untappd-images.go
 
 - name: build pages
   image: plugins/hugo
