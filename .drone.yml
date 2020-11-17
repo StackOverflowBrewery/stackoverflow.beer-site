@@ -15,7 +15,7 @@ steps:
 - name: build pages
   image: plugins/hugo
   settings:
-    hugo_version: 0.78.1
+    hugo_version: 0.78.2
     validate: true
     url: https://stackoverflow.beer
     extended: false
@@ -57,7 +57,7 @@ steps:
     hugo_version: 0.78.1
     validate: true
     url: https://stackoverflow.beer
-    extended: false
+    extended: true
 
 - name: Deploy to uberspace
   image: appleboy/drone-scp
