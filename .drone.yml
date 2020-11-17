@@ -17,8 +17,6 @@ steps:
   settings:
     # hugo_version: 0.78.2
     extended: true
-    config: config.toml
-    content: content
   commands:
   - apk add libc6-compat libstdc++
   - /bin/drone-hugo
