@@ -22,3 +22,8 @@
   white-space: nowrap;
   overflow: hidden;
 }
+
+.untappd-icon {
+  width: 32px;
+  height: 32px;
+}
