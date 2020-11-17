@@ -6,19 +6,20 @@ type: docker
 name: default
 
 steps:
-- name: fetch
-  image: drone/git
-  commands:
-  - git fetch --tags
-  - git submodule update --recursive --remote
+#- name: fetch
+#  image: drone/git
+#  commands:
+#  - git fetch --tags
+#  - git submodule update --recursive --remote
 
 - name: build pages
   image: plugins/hugo
   settings:
     hugo_version: 0.78.2
-    validate: true
-    url: https://stackoverflow.beer
     extended: true
+    validate: true
+    config: config.toml
+    content: content
   commands:
   - apk add libc6-compat libstdc++
   - /bin/drone-hugo
