@@ -6,11 +6,11 @@ type: docker
 name: default
 
 steps:
-#- name: fetch
-#  image: drone/git
-#  commands:
-#  - git fetch --tags
-#  - git submodule update --recursive --remote
+- name: fetch
+  image: drone/git
+  commands:
+  - git fetch --tags
+  - git submodule update --recursive --remote
 
 - name: build pages
   image: plugins/hugo
