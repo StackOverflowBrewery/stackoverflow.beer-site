@@ -156,7 +156,7 @@ theme = "hugo-future-imperfect-slim"
 
 [social]
   # Coding Communities
-  github                = "dereulenspiegel"
+  # github                = "dereulenspiegel"
   # Professional/Business Oriented Communities
   # foursquare            = ""
   # Social Networks
