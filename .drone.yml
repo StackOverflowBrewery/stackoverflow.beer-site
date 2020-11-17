@@ -49,7 +49,7 @@ steps:
     BREWFATHER_APIKEY:
       from_secret: brewfather_apikey
   commands:
-  - cd bin && go run batches.go
+  - mkdir -p data/batches && cd bin && go run batches.go
 
 - name: build pages
   image: plugins/hugo
