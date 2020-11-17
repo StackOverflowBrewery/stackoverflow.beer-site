@@ -41,6 +41,16 @@ steps:
   - git fetch --tags
   - git submodule update --recursive --remote
 
+- name: Update batches
+  image: golang:1.15
+  environment:
+    BREWFATHER_USERID:
+      from_secret: brewfather_userid
+    BREWFATHER_APIKEY:
+      from_secret: brewfather_apikey
+  commands:
+  - cd bin && go run batches.go
+
 - name: build pages
   image: plugins/hugo
   settings:
