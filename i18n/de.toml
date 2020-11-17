@@ -1,0 +1,6 @@
+# Sidebar
+[recent_beers]
+  other = "Aktuelle Biere"
+
+[upcoming_beer]
+  other = "Geplante Biere"

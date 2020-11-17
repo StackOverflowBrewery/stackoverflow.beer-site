@@ -1,0 +1,15 @@
+# Sidebar
+[recent_beers]
+  other = "Recent Beers"
+
+[upcoming_beer]
+  other = "Upcoming Beers"
+
+[abv]
+  other = "ABV"
+
+[ibu]
+  other = "IBU"
+
+[original_gravity]
+  other = "OG"

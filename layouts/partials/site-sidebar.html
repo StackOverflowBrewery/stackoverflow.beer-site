@@ -1,0 +1,54 @@
+<section id="site-sidebar">
+  {{ if gt .Site.Data.batches.Completed 0 }}
+    <section id="recent-posts">
+      <header>
+        <h1>{{ i18n "recent_beers" }}</h1>
+      </header>
+      {{ range .Site.Data.batches.Completed }}
+      <article class="mini-post">
+        <header>
+          <h2>{{ .name }}</h2>
+          <time class="published" datetime="{{ .brewDate }}">{{ dateFormat "2 Jan 2006" .brewDate }}</time>
+        </header>
+        <div class="content">
+          {{ i18n "original_gravity" }}: {{.og | int}} {{ i18n "abv" }}: {{.abv}} {{ i18n "ibu" }}: {{.ibu}}
+        </div>
+        <footer>
+          
+        </footer>
+      </article>
+      {{ end }}
+    </section>
+  {{ end }}
+
+  {{ if .Site.Params.sidebar.categories }}
+    {{ if ne ($.Scratch.Get "showCategories") false }}
+
+      <section id="categories">
+        <header>
+          <h1><a href="{{ "categories" | relLangURL }}">{{ i18n "categories" (len .Site.Taxonomies.categories) }}</a></h1>
+        </header>
+        <ul>
+          {{ $.Scratch.Set "categories" (cond .Site.Params.sidebar.categoriesByCount .Site.Taxonomies.categories.ByCount .Site.Taxonomies.categories.Alphabetical) }}
+          {{ range $key, $value := $.Scratch.Get "categories" }}
+          <li>
+              <a href="{{ printf "%s/%s" "categories" $value.Name | urlize | relLangURL }}/">{{ $value.Name }}<span class="count">{{ $value.Count }}</span></a>
+          {{ end }}
+          </li>
+        </ul>
+      </section>
+    {{ end }}
+  {{ end }}
+
+  {{ if .Site.Params.sidebar.about }}
+    <section id="mini-bio">
+      <header>
+        <h1>{{ i18n "about" }}</h1>
+      </header>
+      <p>{{ .Site.Params.sidebar.about | safeHTML }}</p>
+      <footer>
+        <a href="{{ "about" | relLangURL }}" class="button">{{ i18n "learn_more" }}</a>
+      </footer>
+    </section>
+  {{ end }}
+</section>
