@@ -17,9 +17,6 @@ steps:
   settings:
     # hugo_version: 0.78.2
     extended: true
-  commands:
-  - apk add libc6-compat libstdc++
-  - /bin/drone-hugo
 
 trigger:
   event:
