@@ -58,10 +58,11 @@ steps:
 - name: build pages
   image: plugins/hugo
   settings:
-    hugo_version: 0.78.2
+    # hugo_version: 0.78.2
     validate: true
-    url: https://stackoverflow.beer
     extended: true
+    config: config.toml
+    content: content
   commands:
   - apk add libc6-compat libstdc++
   - /bin/drone-hugo
