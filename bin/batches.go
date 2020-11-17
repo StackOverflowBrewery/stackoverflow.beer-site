@@ -2,9 +2,11 @@ package main
 
 import (
 	"encoding/json"
+	"fmt"
 	"log"
 	"os"
 	"path/filepath"
+	"regexp"
 
 	"github.com/dereulenspiegel/go-brewchild"
 )
@@ -18,15 +20,20 @@ var (
 	dataBaseDir = "../data/batches"
 )
 
+var (
+	untappdIDRegex = regexp.MustCompile(`untappd\(([\d]+)\)`)
+)
+
 type batch struct {
-	Name       string   `json:"name"`
-	ABV        float64  `json:"abv"`
-	IBU        int      `json:"ibu"`
-	Color      float64  `json:"color"`
-	BrewDate   string   `json:"brewDate"`
-	Hops       []string `json:"hops"`
-	OG         float64  `json:"og"`
-	BuGuRation float64  `json:"buGuRatio`
+	Name        string   `json:"name"`
+	ABV         float64  `json:"abv"`
+	IBU         int      `json:"ibu"`
+	Color       float64  `json:"color"`
+	BrewDate    string   `json:"brewDate"`
+	Hops        []string `json:"hops"`
+	OG          float64  `json:"og"`
+	BuGuRation  float64  `json:"buGuRatio"`
+	UntappdLink string   `json:"untappdLink"`
 }
 
 func main() {
@@ -81,6 +88,12 @@ func exportBatches(bfClient *brewchild.Client, state string) {
 			b[i].BuGuRation = bt.BuGuRatio
 		} else {
 			b[i].BuGuRation = bt.EstimatedBuGuRatio
+		}
+
+		if bt.BatchNotes != "" {
+			if m := untappdIDRegex.FindStringSubmatch(bt.BatchNotes); len(m) > 1 {
+				b[i].UntappdLink = fmt.Sprintf("https://untappd.com/b/stackoverflow-brewing-awesome-beer/%s", m[1])
+			}
 		}
 	}
 	defer outFile.Close()
