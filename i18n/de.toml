@@ -4,3 +4,12 @@
 
 [upcoming_beer]
   other = "Geplante Biere"
+
+[abv]
+  other = "Alkohol"
+
+[ibu]
+  other = "Bittereinheiten"
+
+[original_gravity]
+  other = "Stammwürze"
