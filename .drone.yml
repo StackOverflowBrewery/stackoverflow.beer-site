@@ -17,7 +17,6 @@ steps:
   settings:
     # hugo_version: 0.78.2
     extended: true
-    validate: true
     config: config.toml
     content: content
   commands:
@@ -59,7 +58,6 @@ steps:
   image: plugins/hugo
   settings:
     # hugo_version: 0.78.2
-    validate: true
     extended: true
     config: config.toml
     content: content
