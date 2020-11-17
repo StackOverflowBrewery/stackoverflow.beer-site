@@ -149,8 +149,8 @@ theme = "hugo-future-imperfect-slim"
 
     [[Languages.de.menu.main]]
       name              = "Impressum"
-      identifier        = "contact"
-      url               = "/contact/"
+      identifier        = "about"
+      url               = "/about/"
       pre               = "<i class='far fa-envelope'></i>"
       weight            = 6
 
