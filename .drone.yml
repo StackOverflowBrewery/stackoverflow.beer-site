@@ -41,7 +41,7 @@ steps:
   - git submodule init
   - git submodule update --recursive --remote
 
-- name: Update batches
+- name: Scrape brewfather and untappd infos
   image: golang:1.15
   environment:
     BREWFATHER_USERID:
@@ -49,8 +49,10 @@ steps:
     BREWFATHER_APIKEY:
       from_secret: brewfather_apikey
   commands:
-  - mkdir -p data/batches && cd bin && go run batches.go
-  - cd bin && go run scrape-untappd-images.go
+  - mkdir -p data/batches
+  - cd bin
+  - go run batches.go
+  - go run scrape-untappd-images.go
 
 - name: build pages
   image: plugins/hugo
