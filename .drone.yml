@@ -15,7 +15,7 @@ steps:
 - name: build pages
   image: plugins/hugo
   settings:
-    hugo_version: 0.78.2
+    # hugo_version: 0.78.2
     extended: true
     validate: true
     config: config.toml
