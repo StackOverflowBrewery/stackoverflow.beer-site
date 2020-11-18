@@ -13,11 +13,41 @@ steps:
   - git submodule init
   - git submodule update --recursive --remote
 
+- name: Scrape brewfather and untappd infos
+  image: golang:1.15
+  environment:
+    BREWFATHER_USERID:
+      from_secret: brewfather_userid
+    BREWFATHER_APIKEY:
+      from_secret: brewfather_apikey
+  commands:
+  - mkdir -p data/batches
+  - cd bin
+  - go run batches.go
+  - go run scrape-untappd-images.go
+
 - name: build pages
   image: plugins/hugo
   settings:
     # hugo_version: 0.78.2
     extended: true
+    config: config.toml
+    content: content
+    buildDrafts: true
+    url: https://preview.stackoverflow.beer
+
+- name: Deploy to uberspace
+  image: appleboy/drone-scp
+  settings:
+    host: tillk.uber.space
+    username: tillk
+    target: /var/www/virtual/tillk/preview.stackoverflow.beer/
+    source: 
+    - public/*
+    strip_components: 1
+    rm: true
+    key:
+      from_secret: uberspace_key
 
 trigger:
   event:
