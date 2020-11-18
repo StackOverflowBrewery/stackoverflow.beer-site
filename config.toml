@@ -47,11 +47,11 @@ theme = "hugo-future-imperfect-slim"
     socialIntro           = true
     hideWhenSingleColumn  = false
     alwaysOnHomepage      = false
-    #[params.intro.pic]
-    #  src                 = "img/main/logo.jpg"
-    #  shape               = "circle"
-    #  width               = ""
-    #  alt                 = "Hugo Future Imperfect Slim"
+    [params.intro.pic]
+      src                 = "/images/logo.png"
+      shape               = "circle"
+      width               = ""
+      alt                 = "StackOverflow Brewery"
 
   [params.sidebar]
     about               = "Good beers from a kitchen in the shadow of the U"
