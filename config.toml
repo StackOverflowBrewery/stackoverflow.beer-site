@@ -8,7 +8,7 @@ theme = "hugo-future-imperfect-slim"
   unsafe                = true
 
 [outputs]
-  home                  = ["html", "json"]
+  home                  = ["html", "json", "rss"]
 
 [params]
   enableCDN             = false
