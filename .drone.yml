@@ -22,6 +22,7 @@ steps:
       from_secret: brewfather_apikey
   commands:
   - mkdir -p data/batches
+  - rm -f data/batches/*
   - cd bin
   - go run batches.go
   - go run scrape-untappd-images.go
