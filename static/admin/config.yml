@@ -25,4 +25,5 @@ collections:
     - { label: 'Body', name: 'body', widget: 'markdown' }
     - { label: 'Tags', name: 'tags', widget: 'list' }
     - { label: 'Kategorien', name: 'categories', widget: 'list' }
+    - { label: 'Draft', name: 'draft', widget: 'boolean' }
       
