@@ -1,0 +1,26 @@
+backend:
+  name: git-gateway
+  repo: dereulenspiegel/stackoverflow.beer-site
+  branch: main # Branch to update (optional; defaults to master)
+  # base_url: https://gotrue.stackoverflow.beer # Path to ext auth provider
+  identity_url: "https://gotrue.stackoverflow.beer"
+  gateway_url: "https://gitgateway.stackoverflow.beer"
+  site_domain: "https://stackoverflow.beer"
+media_folder: static/images/uploads
+public_folder: /images/uploads
+locale: 'de'
+collections:
+  - name: 'blog'
+    label: 'Blog'
+    folder: 'content/blog'
+    create: true
+    slug: '{{year}}-{{month}}-{{day}}-{{slug}}'
+    format: toml-frontmatter
+    editor:
+      preview: false
+    fields:
+      - { label: 'Title', name: 'title', widget: 'string' }
+      - { label: 'Publish Date', name: 'date', widget: 'datetime' }
+      - { label: 'Description', name: 'description', widget: 'string' }
+      - { label: 'Body', name: 'body', widget: 'markdown' }
+      
