@@ -3,7 +3,7 @@ backend:
   repo: dereulenspiegel/stackoverflow.beer-site
   branch: main # Branch to update (optional; defaults to master)
   identity_url: https://stackoverflow.beer/.netlify/identity
-  gateway_url: https://stackoverflow.beer"/.netlify/git
+  gateway_url: https://stackoverflow.beer/.netlify/git
   site_domain: https://stackoverflow.beer
   base_url: https://stackoverflow.beer
 media_folder: static/images/uploads
