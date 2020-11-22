@@ -27,7 +27,7 @@ steps:
   - go run batches.go
   - go run scrape-untappd-images.go
 
-- name: build pages
+- name: build pages including drafts
   image: plugins/hugo
   settings:
     # hugo_version: 0.78.2
@@ -36,8 +36,14 @@ steps:
     content: content
     buildDrafts: true
     url: https://preview.stackoverflow.beer
+  when:
+    branch:
+      exclude:
+      - main
+      include:
+      - draft/*
 
-- name: Deploy to uberspace
+- name: Deploy to uberspace preview
   image: appleboy/drone-scp
   settings:
     host: tillk.uber.space
@@ -49,6 +55,42 @@ steps:
     rm: true
     key:
       from_secret: uberspace_key
+  when:
+    branch:
+      exclude:
+      - main
+      include:
+      - draft/*
+
+- name: build pages
+  image: plugins/hugo
+  settings:
+    # hugo_version: 0.78.2
+    extended: true
+    config: config.toml
+    content: content
+  commands:
+  - apk add libc6-compat libstdc++
+  - /bin/drone-hugo
+  when:
+    branch: 
+    - main
+
+- name: Deploy to uberspace
+  image: appleboy/drone-scp
+  settings:
+    host: tillk.uber.space
+    username: tillk
+    target: /var/www/virtual/tillk/stackoverflow.beer/
+    source: 
+    - public/*
+    strip_components: 1
+    rm: true
+    key:
+      from_secret: uberspace_key
+  when:
+    branch: 
+    - main
 
 trigger:
   event:
