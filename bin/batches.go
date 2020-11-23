@@ -92,7 +92,7 @@ func exportBatches(bfClient *brewchild.Client, state string) {
 
 		if bt.BatchNotes != "" {
 			if m := untappdIDRegex.FindStringSubmatch(bt.BatchNotes); len(m) > 1 {
-				b[i].UntappdLink = fmt.Sprintf("https://untappd.com/b/stackoverflow-brewing-awesome-beer/%s", m[1])
+				b[i].UntappdLink = fmt.Sprintf("https://untappd.com/qr/beer/%s", m[1])
 			}
 		}
 	}
