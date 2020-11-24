@@ -11,6 +11,34 @@
     <!-- Include the script that builds the page and powers Netlify CMS -->
     <script src="https://unpkg.com/netlify-cms@^2.0.0/dist/netlify-cms.js"></script>
     <script>
+      CMS.registerEditorComponent({
+          id: "img",
+          label: "Image",
+          fields: [{
+                  name: "image",
+                  label: "Bild",
+                  widget: "image"
+              },
+              {
+                  name: "alt",
+                  label: "Textbeschreibung",
+                  widget: "string"
+              },
+          ],
+          pattern: /{{< img ([a-zA-Z0-9_\-]+) ([a-zA-Z0-9_\-]+) >}}/,
+          fromBlock: function(match) {
+              return {
+                  image: match[1],
+                  alt: match[2],
+              };
+          },
+          toBlock: function(obj) {
+              return `{{< gist ${obj.image} ${obj.alt} >}}`;
+          },
+          toPreview: function(obj) {
+              return `{{< gist ${obj.image} ${obj.alt} >}}`;
+          },
+      });
       if (window.netlifyIdentity) {
         window.netlifyIdentity.on("init", user => {
           if (!user) {
