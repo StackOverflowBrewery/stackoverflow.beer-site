@@ -8,14 +8,6 @@ categories = ["Artikel"]
 comments = false
 removeBlur = false
 draft = true
-
-[[resources]]
-  src = "IMG_20160116_094353.jpg"
-  name = "brauen_auf_dem_herd"
-
-[[resources]]
-  src = "IMG_20161119_190238.jpg"
-  name = "rührwerk"
 +++
 
 Willkommen bei der Stackoverflow Brewery. Stackoverflow Brewery das sind meine Freundin (Agnes) und ich (Till).
@@ -26,11 +18,11 @@ Ich braue nun schon seit fast 20 Jahren Bier in meiner Küche (und der meiner El
 Angefangen habe ich auf einer
 hemdsärmeligen Konstruktion mit billigen Gastrotöpfen und einem Gasbrenner. Bin dann auf den klassischen 20L 
 Einkochautomaten übergegangen um dann recht schnell mich bewusst auf ein 10L System zu verkleinern. 
-{{< img "brauen_auf_dem_herd" "Brautopf auf Herd mit Ikeathermometer" >}}
+{{< img "IMG_20160116_094353.jpg" "Brautopf auf Herd mit Ikeathermometer" >}}
 Der Gedanke war öfter unterschiedliches Bier brauen zu können. Damals gab es mit wenigen Ausnahmen wie dem Speidel
 Braumeister keine "All-in-One"-Systeme, daher war Basteln bei Heimbrauern eher an der Tagesordnung. Durch die Tatsache,
 dass ich zu der Zeit meinen ersten 3D-Drucker gebaut habe, kamen natürlich auch viele 3D gedruckte Teile zum Einsatz.
-{{< img "rührwerk" "Selbstgebautes Rührwerk mit 3D gedruckten Teilen" >}}
+{{< img "IMG_20161119_190238.jpg" "Selbstgebautes Rührwerk mit 3D gedruckten Teilen" >}}
 Dieses System hat mir einige Jahre treue Dienste geleistet, aber das Aufkommen der Malzrohrsysteme wie Grainfather,
 Brewzilla, Brauheld etc. ist auch an mir nicht vorbei gezogen.
 Anfangs hatte ich einige Skepsis was diese Systeme anging, da der Maischprozess sehr eingeschränkt wirkt. Nach einiger
