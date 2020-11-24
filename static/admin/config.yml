@@ -15,6 +15,9 @@ collections:
   folder: 'content/blog'
   create: true
   slug: '{{year}}-{{month}}-{{day}}-{{slug}}'
+  path: '{{year}}-{{month}}-{{day}}-{{slug}}/index.md'
+  media_folder: ''
+  public_folder: ''
   format: toml-frontmatter
   editor:
     preview: false
