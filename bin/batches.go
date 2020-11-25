@@ -42,7 +42,7 @@ func main() {
 		log.Fatalf("Failed to create brewfather client: %w", err)
 	}
 
-	for _, state := range []string{"Completed", "Planning"} {
+	for _, state := range []string{"Completed", "Planning", "Brewing", "Fermenting", "Conditioning"} {
 		exportBatches(bfClient, state)
 	}
 }
