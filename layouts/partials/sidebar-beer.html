@@ -1,0 +1,19 @@
+<article class="mini-post">
+  <header>
+    <h2>{{ .name }} {{ if .untappdLink }}<a href="{{.untappdLink}}"><img class="untappd-icon" src="/images/untappd-app-icon.png"></a>{{ end }}</h2>
+  </header>
+  <div class="beer-info-box">
+    <span class="beer-info">
+      <span class="beer-info-title">{{ i18n "original_gravity" }}: </span>{{.og | int}} °P
+    </span>
+    <span class="beer-info">
+      <span class="beer-info-title"> {{ i18n "abv" }}: </span>{{.abv}} %
+    </span>
+    <span class="beer-info">
+      <span class="beer-info-title">{{ i18n "ibu" }}: </span>{{.ibu}}
+    </span>
+  </div>
+  <header>
+    <time class="published" datetime="{{ .brewDate }}">{{ dateFormat "2 Jan 2006" .brewDate }}</time>
+  </header>
+</article>
