@@ -17,7 +17,8 @@ var (
 )
 
 var (
-	dataBaseDir = "../data/batches"
+	dataBaseDir  = "../data/batches"
+	batchPostDir = "../content/batches"
 )
 
 var (
@@ -34,6 +35,7 @@ type batch struct {
 	OG          float64  `json:"og"`
 	BuGuRation  float64  `json:"buGuRatio"`
 	UntappdLink string   `json:"untappdLink"`
+	Number      int      `json:"number"`
 }
 
 func main() {
@@ -42,7 +44,7 @@ func main() {
 		log.Fatalf("Failed to create brewfather client: %w", err)
 	}
 
-	for _, state := range []string{"Completed", "Planning", "Brewing", "Fermenting", "Conditioning"} {
+	for _, state := range []string{"Completed", "Planning", "Brewing", "Fermenting", "Conditioning", "Archived"} {
 		exportBatches(bfClient, state)
 	}
 }
@@ -57,14 +59,16 @@ func exportBatches(bfClient *brewchild.Client, state string) {
 	if err != nil {
 		log.Fatalf("Failed to create output file")
 	}
+	defer outFile.Close()
 
 	b := make([]batch, len(batches))
 
 	for i, bt := range batches {
 		b[i] = batch{
-			Name:  bt.Name,
-			ABV:   bt.ABV,
-			Color: bt.EstimatedColor,
+			Name:   bt.Name,
+			ABV:    bt.ABV,
+			Color:  bt.EstimatedColor,
+			Number: bt.BatchNumber,
 		}
 		if bt.OG != 0.0 {
 			b[i].OG = brewchild.SGToPlato(bt.OG)
@@ -95,9 +99,31 @@ func exportBatches(bfClient *brewchild.Client, state string) {
 				b[i].UntappdLink = fmt.Sprintf("https://untappd.com/qr/beer/%s", m[1])
 			}
 		}
+
+		ensureBatchPostData(b[i])
 	}
-	defer outFile.Close()
+
 	if err := json.NewEncoder(outFile).Encode(b); err != nil {
 		log.Fatalf("Failed to encode output data")
+	}
+}
+
+func ensureBatchPostData(b batch) {
+	batchFolder := filepath.Join(batchPostDir, fmt.Sprintf("%d", b.Number))
+	if err := os.MkdirAll(batchFolder, 0776); err != nil {
+		log.Fatalf("Unable to create batch folder %s: %s", batchFolder, err)
+	}
+	dataFilePath := filepath.Join(batchFolder, "data.json")
+
+	if _, err := os.Stat(dataFilePath); os.IsExist(err) {
+		os.Remove(dataFilePath)
+	}
+	dataFile, err := os.Create(dataFilePath)
+	if err != nil {
+		log.Fatalf("Failed to create batch data file %s: %s", dataFilePath, err)
+	}
+	defer dataFile.Close()
+	if err := json.NewEncoder(dataFile).Encode(b); err != nil {
+		log.Fatalf("Failed to marshal batch data file %s: %s", dataFilePath, err)
 	}
 }
