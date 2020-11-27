@@ -13,20 +13,6 @@ steps:
   - git submodule init
   - git submodule update --recursive --remote
 
-- name: Scrape brewfather and untappd infos
-  image: golang:1.15
-  environment:
-    BREWFATHER_USERID:
-      from_secret: brewfather_userid
-    BREWFATHER_APIKEY:
-      from_secret: brewfather_apikey
-  commands:
-  - mkdir -p data/batches
-  - rm -f data/batches/*
-  - cd bin
-  - go run batches.go
-  - go run scrape-untappd-images.go
-
 - name: build pages including drafts
   image: plugins/hugo
   settings:
@@ -96,7 +82,7 @@ trigger:
   event:
     exclude:
     - promote
-
+    - cron
 ---
 platform:
   os: linux
@@ -104,16 +90,9 @@ platform:
 
 kind: pipeline
 type: docker
-name: deploy-to-uberspace
+name: update-brewfather-infos
 
 steps:
-- name: fetch
-  image: drone/git
-  commands:
-  - git fetch --tags
-  - git submodule init
-  - git submodule update --recursive --remote
-
 - name: Scrape brewfather and untappd infos
   image: golang:1.15
   environment:
@@ -123,36 +102,24 @@ steps:
       from_secret: brewfather_apikey
   commands:
   - mkdir -p data/batches
+  - rm -f data/batches/*
   - cd bin
   - go run batches.go
   - go run scrape-untappd-images.go
 
-- name: build pages
-  image: plugins/hugo
-  settings:
-    # hugo_version: 0.78.2
-    extended: true
-    config: config.toml
-    content: content
+- name: git add
+  image: drone/git
   commands:
-  - apk add libc6-compat libstdc++
-  - /bin/drone-hugo
+  - git add content/batches/*
+  - git add data/batches/*
 
-- name: Deploy to uberspace
-  image: appleboy/drone-scp
+- name: push commit
+  image: appleboy/drone-git-push
   settings:
-    host: tillk.uber.space
-    username: tillk
-    target: /var/www/virtual/tillk/stackoverflow.beer/
-    source: 
-    - public/*
-    strip_components: 1
-    rm: true
-    key:
-      from_secret: uberspace_key
+    remote_name: origin
+    branch: main
+    local_ref: main
 
 trigger:
   event:
-  - promote
-  target:
-  - production
+  - cron
