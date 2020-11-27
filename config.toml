@@ -80,12 +80,12 @@ theme = "hugo-future-imperfect-slim"
     pre               = "<i class='fa fa-home'></i>"
     weight            = 1
 
-  [[menu.main]]
-    name              = "Über"
-    identifier        = "about"
-    url               = "/about/"
-    pre               = "<i class='far fa-id-card'></i>"
-    weight            = 2
+  #[[menu.main]]
+  #  name              = "Über"
+  #  identifier        = "about"
+  #  url               = "/about/"
+  #  pre               = "<i class='far fa-id-card'></i>"
+  #  weight            = 2
 
   [[menu.main]]
     name              = "Blog"
@@ -101,19 +101,19 @@ theme = "hugo-future-imperfect-slim"
     pre               = "<i class='fas fa-sitemap'></i>"
     weight            = 5
 
-  [[menu.main]]
-    name              = "Kontakt"
-    identifier        = "contact"
-    url               = "/contact/"
-    pre               = "<i class='far fa-envelope'></i>"
-    weight            = 6
+  #[[menu.main]]
+  #  name              = "Kontakt"
+  #  identifier        = "contact"
+  #  url               = "/contact/"
+  #  pre               = "<i class='far fa-envelope'></i>"
+  #  weight            = 6
   
   [[menu.main]]
     name              = "Impressum"
-    identifier        = "about"
-    url               = "/about/"
-    pre               = "<i class='far fa-envelope'></i>"
-    weight            = 6
+    identifier        = "imprint"
+    url               = "/imprint/"
+    pre               = "<i class='fa fa-gavel'></i>"
+    weight            = 7
 
 [Languages]
 
@@ -133,12 +133,12 @@ theme = "hugo-future-imperfect-slim"
       pre               = "<i class='fas fa-home'></i>"
       weight            = 1
 
-    [[Languages.en.menu.main]]
-      name              = "About"
-      identifier        = "about"
-      url               = "/about/"
-      pre               = "<i class='far fa-id-card'></i>"
-      weight            = 2
+    #[[Languages.en.menu.main]]
+    #  name              = "About"
+    #  identifier        = "about"
+    #  url               = "/about/"
+    #  pre               = "<i class='far fa-id-card'></i>"
+    #  weight            = 2
 
     [[Languages.en.menu.main]]
       name              = "Blog"
@@ -153,6 +153,13 @@ theme = "hugo-future-imperfect-slim"
       url               = "/categories/"
       pre               = "<i class='fas fa-sitemap'></i>"
       weight            = 5
+
+    [[Languages.en.menu.main]]
+      name              = "Imprint"
+      identifier        = "imprint"
+      url               = "/imprint/"
+      pre               = "<i class='fa fa-gavel'></i>"
+      weight            = 7
 
 [social]
   # Coding Communities
