@@ -36,6 +36,7 @@ type batch struct {
 	BuGuRation  float64  `json:"buGuRatio"`
 	UntappdLink string   `json:"untappdLink"`
 	Number      int      `json:"number"`
+	State       string   `json:"state"`
 }
 
 func main() {
@@ -69,6 +70,7 @@ func exportBatches(bfClient *brewchild.Client, state string) {
 			ABV:    bt.ABV,
 			Color:  bt.EstimatedColor,
 			Number: bt.BatchNumber,
+			State:  state,
 		}
 		if bt.OG != 0.0 {
 			b[i].OG = brewchild.SGToPlato(bt.OG)
