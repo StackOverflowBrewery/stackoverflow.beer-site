@@ -11,6 +11,8 @@ import (
 	"regexp"
 	"strings"
 	"sync"
+	"text/template"
+	"time"
 
 	"github.com/PuerkitoBio/goquery"
 )
@@ -86,12 +88,13 @@ func parseCheckin(checkinURL string) {
 
 	var imageLink string
 	var description string
-	beerName, beerID := extractBeerIDFromCheckin(doc)
+	beerID, beerName, beerLink := extractBeerIDFromCheckin(doc)
 
 	contentFolder := filepath.Join(contentBaseFolder, beerName+"-"+beerID)
 	if err := os.MkdirAll(contentFolder, 0776); err != nil {
 		log.Fatalf("Failed to create content folder %s: %s", contentFolder, err)
 	}
+	scrapeBasicBeerInfos(beerID, beerLink, contentFolder)
 
 	doc.Find("meta").Each(func(i int, s *goquery.Selection) {
 		val, exists := s.Attr("property")
@@ -131,10 +134,11 @@ func parseCheckin(checkinURL string) {
 
 }
 
-func extractBeerIDFromCheckin(doc *goquery.Document) (beerID string, beerName string) {
+func extractBeerIDFromCheckin(doc *goquery.Document) (beerID, beerName, beerLink string) {
 	doc.Find(".checkin-info.pad-it a.label").Each(func(i int, s *goquery.Selection) {
 		val, exists := s.Attr("href")
 		if exists {
+			beerLink = val
 			if m := beerIDRegex.FindStringSubmatch(val); len(m) > 1 {
 				beerID = m[1]
 			} else {
@@ -149,4 +153,80 @@ func extractBeerIDFromCheckin(doc *goquery.Document) (beerID string, beerName st
 		}
 	})
 	return
+}
+
+var indexTmpl = template.Must(template.New("index").Parse(`+++
+title = "{{.BeerName}}"
+description = "{{.Description}}"
+abv = "{{.ABV}}"
+ibu = "{{.IBU}}"
+untappdId = "{{.UntappdID}}"
+author = "StackOverflow Brewery"
+date = "{{.Date}}"
+tags = ["Bier"]
+categories = ["Bier"]
+comments = false
+removeBlur = false
+draft = false
++++`))
+
+var (
+	detailRegex = regexp.MustCompile(`([\d\.]+).*`)
+)
+
+func scrapeBasicBeerInfos(untappdID, beerLink, contentFolder string) {
+	indexPath := filepath.Join(contentFolder, "index.md")
+	if _, err := os.Stat(indexPath); os.IsExist(err) {
+		log.Printf("Index file %s already exists", indexPath)
+		return
+	}
+
+	resp, err := http.Get("https://untappd.com" + beerLink)
+	if err != nil {
+		log.Fatalf("Failed to retrieve beer page: %s", err)
+	}
+	defer resp.Body.Close()
+
+	doc, err := goquery.NewDocumentFromReader(resp.Body)
+	if err != nil {
+		log.Fatalf("Failed to parse beer page")
+	}
+	beerName := doc.Find("h1").First().Text()
+	if beerName == "Checking your browser before accessing untappd.com." {
+		log.Printf("Ran into browser check, need to try again")
+		return
+	}
+	beerDetailsABVText := doc.Find("div.details p.abv").First().Text()
+	beerDetailsIBUText := doc.Find("div.details p.ibu").First().Text()
+	beerDetailsDescriptionText := doc.Find("div.desc div.beer-descrption-read-less").First().Text()
+	beerDescription := ""
+	if len(beerDetailsDescriptionText) > 10 {
+		beerDescription = beerDetailsDescriptionText[:len(beerDetailsDescriptionText)-10]
+	}
+	beerDescription = strings.ReplaceAll(beerDescription, "\n", "")
+
+	indexFile, err := os.Create(indexPath)
+	if err != nil {
+		log.Fatalf("Failed to create index file %s: %s", indexPath, err)
+	}
+	defer indexFile.Close()
+	tmplData := map[string]string{
+		"BeerName":    beerName,
+		"Description": beerDescription,
+		"UntappdID":   untappdID,
+		"ABV":         extractNumber(beerDetailsABVText),
+		"IBU":         extractNumber(beerDetailsIBUText),
+		"Date":        time.Now().Format(time.RFC3339),
+	}
+
+	if err := indexTmpl.Execute(indexFile, tmplData); err != nil {
+		log.Fatalf("Failed to render %s: %s", indexPath, err)
+	}
+}
+
+func extractNumber(in string) string {
+	if m := detailRegex.FindStringSubmatch(in); len(m) > 1 {
+		return m[1]
+	}
+	return ""
 }
