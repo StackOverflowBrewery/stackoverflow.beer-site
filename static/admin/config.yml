@@ -24,7 +24,7 @@ collections:
   fields:
     - { label: 'Title', name: 'title', widget: 'string' }
     - { label: 'Publish Date', name: 'date', widget: 'datetime' }
-    - { label: 'Description', name: 'description', widget: 'string' }
+    - { label: 'Description', name: 'description', widget: 'string', required: false }
     - { label: 'Tags', name: 'tags', widget: 'list' }
     - { label: 'Kategorien', name: 'categories', widget: 'list' }
     - { label: 'Draft', name: 'draft', widget: 'boolean' }
@@ -51,7 +51,9 @@ collections:
     - { label: 'Description', name: 'description', widget: 'string' }
     - { label: 'Draft', name: 'draft', widget: 'boolean' }
     - { label: 'Untappd ID', name: 'untappdId', widget: 'string' }
-    - { label: 'Alkohol', name: 'abv', widget: 'float' }
-    - { label: 'Bittereinheiten', name: 'ibu', widget: 'float' }
+    - { label: 'Alkohol', name: 'abv', widget: 'number' }
+    - { label: 'Bittereinheiten', name: 'ibu', widget: 'number' }
+    - { label: 'Tags', name: 'tags', widget: 'list' }
+    - { label: 'Kategorien', name: 'categories', widget: 'list' }
     - { label: 'Body', name: 'body', widget: 'markdown' }
       
