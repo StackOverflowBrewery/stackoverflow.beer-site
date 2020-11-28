@@ -1,5 +1,5 @@
 {{ define "main" }}
-  {{ $paginator := .Paginate (where site.Pages "Type" "eq" "beers") }}
+  {{ $paginator := .Paginate ((where site.Pages "Type" "eq" "beers") sort .Params.untappdId "desc") }}
   {{ range $paginator.Pages }}
     {{ .Render "content-list" }}
   {{ end }}
