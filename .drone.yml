@@ -24,8 +24,8 @@ steps:
   - mkdir -p data/batches
   - rm -f data/batches/*
   - cd bin
-  - go run batches.go
   - go run scrape-untappd-images.go
+  - go run batches.go
 
 - name: build pages including drafts
   image: plugins/hugo
@@ -118,8 +118,8 @@ steps:
   - mkdir -p data/batches
   - rm -f data/batches/*
   - cd bin
-  - go run batches.go
   - go run scrape-untappd-images.go
+  - go run batches.go
 
 - name: git add
   image: drone/git
