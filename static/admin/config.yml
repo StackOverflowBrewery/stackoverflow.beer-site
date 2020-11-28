@@ -30,4 +30,28 @@ collections:
     - { label: 'Draft', name: 'draft', widget: 'boolean' }
     - { label: 'Autor', name: 'author', widget: 'string' } 
     - { label: 'Body', name: 'body', widget: 'markdown' }
+
+- name: 'beers'
+  label: 'Biere'
+  folder: 'content/beers'
+  create: false
+  hide: false
+  delete: false
+  slug: ''
+  nested: 
+    depth: 10
+  media_folder: ''
+  public_folder: ''
+  format: toml-frontmatter
+  editor:
+    preview: false
+  fields:
+    - { label: 'Title', name: 'title', widget: 'string' }
+    - { label: 'Publish Date', name: 'date', widget: 'datetime' }
+    - { label: 'Description', name: 'description', widget: 'string' }
+    - { label: 'Draft', name: 'draft', widget: 'boolean' }
+    - { label: 'Untappd ID', name: 'untappdId', widget: 'string' }
+    - { label: 'Alkohol', name: 'abv', widget: 'float' }
+    - { label: 'Bittereinheiten', name: 'ibu', widget: 'float' }
+    - { label: 'Body', name: 'body', widget: 'markdown' }
       
