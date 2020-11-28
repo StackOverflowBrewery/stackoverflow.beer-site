@@ -124,8 +124,8 @@ steps:
 - name: git add
   image: drone/git
   commands:
-  - git add content/batches/*
-  - git add data/batches/*
+  - git add -f content/batches/*
+  - git add -f data/batches/*
 
 - name: push commit
   image: appleboy/drone-git-push
