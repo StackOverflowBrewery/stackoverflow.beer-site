@@ -23,6 +23,7 @@ theme = "hugo-future-imperfect-slim"
   removeBlur            = false
   socialShare           = ["twitter", "facebook", "email"]
   hideEmptyStats        = false
+  mainSections           = ["blog"]
 
   [params.meta]
     description         = "StackOverflow Brewery from Dortmund, Germany"
