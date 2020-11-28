@@ -8,6 +8,7 @@ import (
 	"os"
 	"path"
 	"path/filepath"
+	"regexp"
 	"strings"
 	"sync"
 
@@ -18,6 +19,8 @@ var (
 	breweryFeed = "https://untappd.com/rss/brewery/462497"
 
 	untappdImageFolder = "../static/images/untappd"
+
+	contentBaseFolder = "../content/beers/"
 )
 
 type feedXML struct {
@@ -64,6 +67,11 @@ type pageMeta struct {
 	Content  string `xml:"content,attr"`
 }
 
+var (
+	beerIDRegex   = regexp.MustCompile(`\/b\/[a-z\-0-9]+\/(\d+)`)
+	beerNameRegex = regexp.MustCompile(`\/b\/([a-z\-0-9]+)\/[\d]+`)
+)
+
 func parseCheckin(checkinURL string) {
 	resp, err := http.Get(checkinURL)
 	if err != nil {
@@ -78,6 +86,12 @@ func parseCheckin(checkinURL string) {
 
 	var imageLink string
 	var description string
+	beerName, beerID := extractBeerIDFromCheckin(doc)
+
+	contentFolder := filepath.Join(contentBaseFolder, beerName+"-"+beerID)
+	if err := os.MkdirAll(contentFolder, 0776); err != nil {
+		log.Fatalf("Failed to create content folder %s: %s", contentFolder, err)
+	}
 
 	doc.Find("meta").Each(func(i int, s *goquery.Selection) {
 		val, exists := s.Attr("property")
@@ -103,7 +117,7 @@ func parseCheckin(checkinURL string) {
 		}
 		defer resp.Body.Close()
 		imageName := path.Base(imageLink[7:])
-		outPath := filepath.Join(untappdImageFolder, imageName)
+		outPath := filepath.Join(contentFolder, imageName)
 		outFile, err := os.Create(outPath)
 		if err != nil {
 			log.Fatalf("Failed to create output image: %s", err)
@@ -114,4 +128,25 @@ func parseCheckin(checkinURL string) {
 			log.Fatalf("Failed to write image to disk: %s", err)
 		}
 	}
+
+}
+
+func extractBeerIDFromCheckin(doc *goquery.Document) (beerID string, beerName string) {
+	doc.Find(".checkin-info.pad-it a.label").Each(func(i int, s *goquery.Selection) {
+		val, exists := s.Attr("href")
+		if exists {
+			if m := beerIDRegex.FindStringSubmatch(val); len(m) > 1 {
+				beerID = m[1]
+			} else {
+				log.Printf("Failed to extract beerID from link %s", val)
+			}
+
+			if m := beerNameRegex.FindStringSubmatch(val); len(m) > 1 {
+				beerName = m[1]
+			} else {
+				log.Printf("Failed to extract beer name from link %s", val)
+			}
+		}
+	})
+	return
 }
