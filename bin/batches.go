@@ -94,17 +94,80 @@ func exportBatches(bfClient *brewchild.Client, state string) {
 			b[i].BuGuRation = bt.EstimatedBuGuRatio
 		}
 
+		var untappdID string
 		if bt.BatchNotes != "" {
 			if m := untappdIDRegex.FindStringSubmatch(bt.BatchNotes); len(m) > 1 {
-				b[i].UntappdLink = fmt.Sprintf("https://untappd.com/qr/beer/%s", m[1])
+				untappdID = m[1]
+				b[i].UntappdLink = fmt.Sprintf("https://untappd.com/qr/beer/%s", untappdID)
 			}
 		}
-
+		addDataToBeer(b[i], untappdID)
 		ensureBatchPostData(b[i])
 	}
 
 	if err := json.NewEncoder(outFile).Encode(b); err != nil {
 		log.Fatalf("Failed to encode output data")
+	}
+}
+
+var beerContentBase = "../content/beers/"
+var batchDataFileName = "batches.json"
+
+func addDataToBeer(b batch, untappdID string) {
+	if untappdID == "" {
+		log.Printf("UntappdID is empty for batch %d\n", b.Number)
+		return
+	}
+
+	matches, err := filepath.Glob(beerContentBase + untappdID + "-*")
+	if err != nil {
+		log.Fatalf("Failed to glob beer contnt: %s", err)
+	}
+	if len(matches) > 1 {
+		log.Printf("Found multiple matching beer folders, aborting")
+		return
+	}
+	if len(matches) < 1 {
+		log.Printf("Found no matches for untappdID %s", untappdID)
+		return
+	}
+	batchListPath := filepath.Join(matches[0], batchDataFileName)
+
+	batches := []string{}
+	if _, err := os.Stat(batchListPath); os.IsNotExist(err) {
+		batches = append(batches, fmt.Sprintf("%d", b.Number))
+		outFile, err := os.Create(batchListPath)
+		if err != nil {
+			log.Fatalf("Failed to create batch list for beer: %s", err)
+		}
+		defer outFile.Close()
+		if err := json.NewEncoder(outFile).Encode(&batches); err != nil {
+			log.Fatalf("Failed to marshal batch list: %s", err)
+		}
+	} else {
+		outFile, err := os.OpenFile(batchListPath, os.O_RDWR, 0776)
+		if err != nil {
+			log.Fatalf("Failed to open existing batch file %s: %s", batchListPath, err)
+		}
+		defer outFile.Close()
+		if err := json.NewDecoder(outFile).Decode(&batches); err != nil {
+			log.Fatalf("Failed to unmarshal existing batch list: %s", err)
+		}
+
+		currBatch := fmt.Sprintf("%d", b.Number)
+		exists := false
+		for _, bn := range batches {
+			if bn == currBatch {
+				exists = true
+			}
+		}
+
+		if !exists {
+			batches = append(batches, currBatch)
+			if err := json.NewEncoder(outFile).Encode(&batches); err != nil {
+				log.Fatalf("Failed to marshal batch list: %s", err)
+			}
+		}
 	}
 }
 
