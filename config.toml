@@ -96,11 +96,18 @@ theme = "hugo-future-imperfect-slim"
     weight            = 3
 
   [[menu.main]]
+    name              = "Unsere Biere"
+    identifier        = "beers"
+    url               = "/beers/"
+    pre               = "<i class='fa fa-beer'></i>'"
+    weight            = 4
+
+  [[menu.main]]
     name              = "Kategorien"
     identifier        = "categories"
     url               = "/categories/"
     pre               = "<i class='fas fa-sitemap'></i>"
-    weight            = 5
+    weight            = 10
 
   #[[menu.main]]
   #  name              = "Kontakt"
@@ -114,7 +121,7 @@ theme = "hugo-future-imperfect-slim"
     identifier        = "imprint"
     url               = "/imprint/"
     pre               = "<i class='fa fa-gavel'></i>"
-    weight            = 7
+    weight            = 11
 
 [Languages]
 
@@ -149,18 +156,25 @@ theme = "hugo-future-imperfect-slim"
       weight            = 3
 
     [[Languages.en.menu.main]]
+      name              = "Our beers"
+      identifier        = "beers"
+      url               = "/beers/"
+      pre               = "<i class='fa fa-beer'></i>"
+      weight            = 4
+
+    [[Languages.en.menu.main]]
       name              = "Categories"
       identifier        = "categories"
       url               = "/categories/"
       pre               = "<i class='fas fa-sitemap'></i>"
-      weight            = 5
+      weight            = 10
 
     [[Languages.en.menu.main]]
       name              = "Imprint"
       identifier        = "imprint"
       url               = "/imprint/"
       pre               = "<i class='fa fa-gavel'></i>"
-      weight            = 7
+      weight            = 15
 
 [social]
   # Coding Communities
