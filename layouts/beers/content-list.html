@@ -1,14 +1,14 @@
 <article class="post">
-  <header>
+  <header class="beer-list-header" style="border: 0;">
     <div class="title">
       <h1><a href="{{ .RelPermalink }}">{{ .Title }}</a></h1>
       {{ with .Description }}
         <p>{{ . }}</p>
       {{ end }}
     </div>
-    <div class="meta">
-      <span class="beer-info"><span class="beer-info-title">ABV:</span> {{.Params.ABV}} %</span>
-      <span class="beer-info"><span class="{{.Params.ABV}}">IBU:</span> {{.Params.IBU}}</span>
+    <div class="meta beer-list-meta">
+      <span class="beer-info"><span class="beer-info-title">{{ i18n "abv" }}:</span> {{.Params.ABV}} %</span>
+      <span class="beer-info"><span class="beer-info-title">{{ i18n "ibu" }}:</span> {{.Params.IBU}}</span>
     </div>
   </header>
 </article>
