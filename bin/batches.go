@@ -39,20 +39,9 @@ type batch struct {
 	State       string   `json:"state"`
 }
 
-func main() {
-	bfClient, err := brewchild.New(brewfatherUserID, brewfatherAPIKey)
-	if err != nil {
-		log.Fatalf("Failed to create brewfather client: %w", err)
-	}
-
-	for _, state := range []string{"Completed", "Planning", "Brewing", "Fermenting", "Conditioning", "Archived"} {
-		exportBatches(bfClient, state)
-	}
-}
-
 func exportBatches(bfClient *brewchild.Client, state string) {
 	outFilePath := filepath.Join(dataBaseDir, state+".json")
-	batches, err := bfClient.Batches(brewchild.Status(state), brewchild.Complete(true), brewchild.Limit(10))
+	batches, err := bfClient.Batches(brewchild.Status(state), brewchild.Complete(true), brewchild.Limit(100))
 	if err != nil {
 		log.Fatalf("Failed to retrieve batches from brewfather: %s", err)
 	}

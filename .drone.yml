@@ -104,8 +104,7 @@ steps:
   - mkdir -p data/batches
   - rm -f data/batches/*
   - cd bin
-  - go run scrape-untappd-images.go
-  - go run batches.go
+  - go run .
 
 - name: git add
   image: drone/git

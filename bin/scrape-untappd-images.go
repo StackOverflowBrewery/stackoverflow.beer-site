@@ -1,7 +1,6 @@
 package main
 
 import (
-	"encoding/xml"
 	"io"
 	"log"
 	"net/http"
@@ -10,7 +9,6 @@ import (
 	"path/filepath"
 	"regexp"
 	"strings"
-	"sync"
 	"text/template"
 	"time"
 
@@ -34,30 +32,6 @@ type feedXML struct {
 type feedItem struct {
 	Link    string `xml:"link"`
 	PubDate string `xml:"pubDate"`
-}
-
-func main() {
-	resp, err := http.Get(breweryFeed)
-	if err != nil {
-		log.Fatalf("Failed to get brewery feed: %s", err)
-	}
-	defer resp.Body.Close()
-
-	feed := feedXML{}
-	err = xml.NewDecoder(resp.Body).Decode(&feed)
-	if err != nil {
-		log.Fatalf("Failed to parse brewery feed: %s", err)
-	}
-
-	wg := &sync.WaitGroup{}
-	for _, item := range feed.Channel.Items {
-		wg.Add(1)
-		go func(checkinURL string) {
-			defer wg.Done()
-			parseCheckin(checkinURL)
-		}(item.Link)
-	}
-	wg.Wait()
 }
 
 type checkinPage struct {
@@ -90,10 +64,11 @@ func parseCheckin(checkinURL string) {
 	var description string
 	beerID, beerName, beerLink := extractBeerIDFromCheckin(doc)
 
-	contentFolder := filepath.Join(contentBaseFolder, beerName+"-"+beerID)
-	if err := os.MkdirAll(contentFolder, 0776); err != nil {
-		log.Fatalf("Failed to create content folder %s: %s", contentFolder, err)
+	contentFolder, err := ensureBeerContentFolder(beerID, beerName)
+	if err != nil {
+		log.Fatalf("Failed to create beer content folder: %s", err)
 	}
+
 	scrapeBasicBeerInfos(beerID, beerLink, contentFolder)
 
 	doc.Find("meta").Each(func(i int, s *goquery.Selection) {
