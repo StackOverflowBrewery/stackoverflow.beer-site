@@ -113,19 +113,13 @@ func addDataToBeer(b batch, untappdID string) {
 		return
 	}
 
-	matches, err := filepath.Glob(beerContentBase + untappdID + "-*")
-	if err != nil {
-		log.Fatalf("Failed to glob beer contnt: %s", err)
-	}
-	if len(matches) > 1 {
-		log.Printf("Found multiple matching beer folders, aborting")
-		return
-	}
-	if len(matches) < 1 {
+	beerPath, exists := beerContentPath(untappdID)
+	if !exists {
 		log.Printf("Found no matches for untappdID %s", untappdID)
 		return
 	}
-	batchListPath := filepath.Join(matches[0], batchDataFileName)
+
+	batchListPath := filepath.Join(beerPath, batchDataFileName)
 
 	batches := []string{}
 	if _, err := os.Stat(batchListPath); os.IsNotExist(err) {

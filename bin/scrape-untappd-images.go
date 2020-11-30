@@ -152,6 +152,7 @@ var (
 )
 
 func ensureBeerContentExists(untappdID string) error {
+	log.Printf("Checking beer content for untappdID %s", untappdID)
 	beerLink := "/b/awesome-beer/" + untappdID
 	resp, err := http.Get("https://untappd.com" + beerLink)
 	if err != nil {
