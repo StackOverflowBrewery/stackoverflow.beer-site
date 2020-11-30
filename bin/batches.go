@@ -90,6 +90,7 @@ func exportBatches(bfClient *brewchild.Client, state string) {
 			if m := untappdIDRegex.FindStringSubmatch(bt.BatchNotes); len(m) > 1 {
 				untappdID = m[1]
 				b[i].UntappdLink = fmt.Sprintf("https://untappd.com/qr/beer/%s", untappdID)
+				ensureBeerContentExists(untappdID)
 			}
 		}
 		addDataToBeer(b[i], untappdID)

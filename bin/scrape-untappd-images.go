@@ -1,9 +1,11 @@
 package main
 
 import (
+	"fmt"
 	"io"
 	"log"
 	"net/http"
+	"net/url"
 	"os"
 	"path"
 	"path/filepath"
@@ -148,6 +150,63 @@ draft = false
 var (
 	detailRegex = regexp.MustCompile(`([\d\.]+).*`)
 )
+
+func ensureBeerContentExists(untappdID string) error {
+	beerLink := "/b/awesome-beer/" + untappdID
+	resp, err := http.Get("https://untappd.com" + beerLink)
+	if err != nil {
+		log.Fatalf("Failed to retrieve beer page: %s", err)
+	}
+	defer resp.Body.Close()
+
+	doc, err := goquery.NewDocumentFromReader(resp.Body)
+	if err != nil {
+		return fmt.Errorf("Failed to parse beer page: %w", err)
+	}
+	beerName := doc.Find("h1").First().Text()
+	if beerName == "Checking your browser before accessing untappd.com." {
+		log.Printf("Ran into browser check, need to try again")
+		return nil
+	}
+
+	contentFolder, err := ensureBeerContentFolder(untappdID, url.PathEscape(beerName))
+	if err != nil {
+		return fmt.Errorf("Failed to ensure beer content folder %s: %w", contentFolder, err)
+	}
+	indexPath := filepath.Join(contentFolder, "index.md")
+	if _, err := os.Stat(indexPath); os.IsExist(err) {
+		log.Printf("Index file %s already exists", indexPath)
+		return nil
+	}
+
+	beerDetailsABVText := doc.Find("div.details p.abv").First().Text()
+	beerDetailsIBUText := doc.Find("div.details p.ibu").First().Text()
+	beerDetailsDescriptionText := doc.Find("div.desc div.beer-descrption-read-less").First().Text()
+	beerDescription := ""
+	if len(beerDetailsDescriptionText) > 10 {
+		beerDescription = beerDetailsDescriptionText[:len(beerDetailsDescriptionText)-10]
+	}
+	beerDescription = strings.ReplaceAll(beerDescription, "\n", "")
+
+	indexFile, err := os.Create(indexPath)
+	if err != nil {
+		log.Fatalf("Failed to create index file %s: %s", indexPath, err)
+	}
+	defer indexFile.Close()
+	tmplData := map[string]string{
+		"BeerName":    beerName,
+		"Description": beerDescription,
+		"UntappdID":   untappdID,
+		"ABV":         extractNumber(beerDetailsABVText),
+		"IBU":         extractNumber(beerDetailsIBUText),
+		"Date":        time.Now().Format(time.RFC3339),
+	}
+
+	if err := indexTmpl.Execute(indexFile, tmplData); err != nil {
+		log.Fatalf("Failed to render %s: %s", indexPath, err)
+	}
+	return nil
+}
 
 func scrapeBasicBeerInfos(untappdID, beerLink, contentFolder string) {
 	indexPath := filepath.Join(contentFolder, "index.md")
