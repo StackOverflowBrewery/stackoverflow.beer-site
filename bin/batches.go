@@ -35,6 +35,7 @@ type batch struct {
 	OG          float64  `json:"og"`
 	BuGuRation  float64  `json:"buGuRatio"`
 	UntappdLink string   `json:"untappdLink"`
+	UntappdID   string   `json:"untappdId`
 	Number      int      `json:"number"`
 	State       string   `json:"state"`
 }
@@ -90,6 +91,7 @@ func exportBatches(bfClient *brewchild.Client, state string) {
 			if m := untappdIDRegex.FindStringSubmatch(bt.BatchNotes); len(m) > 1 {
 				untappdID = m[1]
 				b[i].UntappdLink = fmt.Sprintf("https://untappd.com/qr/beer/%s", untappdID)
+				b[i].UntappdID = m[1]
 				ensureBeerContentExists(untappdID)
 			}
 		}
