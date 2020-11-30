@@ -12,8 +12,8 @@ theme = "hugo-future-imperfect-slim"
 
 [params]
   enableCDN             = false
-  cssFiles              = ["default"]
-  jsFiles               = ["default"]
+  cssFiles              = ["default", "css/tiny-slider.css"]
+  jsFiles               = ["default", "js/tiny-slider.js"]
   highlightjs           = true
   highlightjsTheme      = ""
   highlightjsLang       = []
