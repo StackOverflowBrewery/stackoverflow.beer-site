@@ -27,6 +27,9 @@ type frontMatter struct {
 	Description string  `yaml:"description"`
 	ABV         float64 `yaml:"abv"`
 	IBU         int     `yaml:"ibu"`
+	OG          float64 `yaml:"og"`
+	BuGuRatio   float64 `yaml:"buGuRation"`
+	BeerColor   float64 `yaml:"beerColor"`
 	UntappdID   string  `yaml:"untappdId"`
 
 	Author     string    `yaml:"author"`
@@ -104,6 +107,9 @@ func ensureBeerContent(contentFolder string, b *beer) (err error) {
 		}
 		fm.ABV = bt.ABV
 		fm.IBU = bt.IBU
+		fm.OG = bt.OG
+		fm.BuGuRatio = bt.BuGuRation
+		fm.BeerColor = bt.Color
 	} else {
 		abv, err := strconv.ParseFloat(b.ABV, 64)
 		if err != nil {
