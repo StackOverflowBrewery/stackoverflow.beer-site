@@ -35,7 +35,7 @@ type batch struct {
 	OG          float64  `json:"og"`
 	BuGuRation  float64  `json:"buGuRatio"`
 	UntappdLink string   `json:"untappdLink"`
-	UntappdID   string   `json:"untappdId`
+	UntappdID   string   `json:"untappdId"`
 	Number      int      `json:"number"`
 	State       string   `json:"state"`
 }
