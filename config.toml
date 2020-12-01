@@ -130,52 +130,6 @@ theme = "hugo-future-imperfect-slim"
     LanguageName        = "Deutsch"
     weight              = 1
 
-  [Languages.en]
-    LanguageCode        = "en"
-    LanguageName        = "English"
-    weight              = 2
-    [[Languages.en.menu.main]]
-      name              = "Home"
-      identifier        = "home"
-      url               = "/"
-      pre               = "<i class='fas fa-home'></i>"
-      weight            = 1
-
-    #[[Languages.en.menu.main]]
-    #  name              = "About"
-    #  identifier        = "about"
-    #  url               = "/about/"
-    #  pre               = "<i class='far fa-id-card'></i>"
-    #  weight            = 2
-
-    [[Languages.en.menu.main]]
-      name              = "Blog"
-      identifier        = "blog"
-      url               = "/blog/"
-      pre               = "<i class='far fa-newspaper'></i>"
-      weight            = 3
-
-    [[Languages.en.menu.main]]
-      name              = "Our beers"
-      identifier        = "beers"
-      url               = "/beers/"
-      pre               = "<i class='fa fa-beer'></i>"
-      weight            = 4
-
-    [[Languages.en.menu.main]]
-      name              = "Categories"
-      identifier        = "categories"
-      url               = "/categories/"
-      pre               = "<i class='fas fa-sitemap'></i>"
-      weight            = 10
-
-    [[Languages.en.menu.main]]
-      name              = "Imprint"
-      identifier        = "imprint"
-      url               = "/imprint/"
-      pre               = "<i class='fa fa-gavel'></i>"
-      weight            = 15
-
 [social]
   # Coding Communities
   # github                = "dereulenspiegel"
