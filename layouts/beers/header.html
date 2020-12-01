@@ -11,6 +11,11 @@
     {{ end }}
   </div>
   <div class="meta beer-list-meta">
+    {{ if gt .Params.og 1 }}
+      <span class="beer-info">
+        <span class="beer-info-title">{{ i18n "original_gravity" }}: </span>{{.Params.og | int}} °P
+      </span>
+      {{ end }}
     <span class="beer-info"><span class="beer-info-title">{{ i18n "abv" }}:</span> {{.Params.ABV}} %</span>
     <span class="beer-info"><span class="beer-info-title">{{ i18n "ibu" }}:</span> {{.Params.IBU}}</span>
   </div>
