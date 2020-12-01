@@ -1,14 +1,18 @@
-+++
-title = "Kräuterhexe"
-description = "Pale Ale with a refreshing Rosemary note. Perfect for your fine steak dinner or chilling at the water side during a heat wave. "
-abv = "6"
-ibu = "22"
-untappdId = "3918013"
-author = "StackOverflow Brewery"
-date = "2020-12-01T18:15:06+01:00"
-tags = ["Bier"]
-categories = ["Bier"]
-comments = false
-removeBlur = false
-draft = false
-+++
+---
+title: Kräuterhexe
+description: 'Pale Ale with a refreshing Rosemary note. Perfect for your fine steak
+    dinner or chilling at the water side during a heat wave. '
+abv: 6
+ibu: 22
+untappdId: "3918013"
+author: StackOverflow Brewery
+date: 2020-07-27T00:00:00+02:00
+tags:
+  - Bier
+categories:
+  - Bier
+comments: false
+removeBlur: false
+draft: false
+
+---
