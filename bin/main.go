@@ -48,7 +48,8 @@ func generateContent(imageLinks map[string][]string) {
 func downloadImages(links []string, targetFolder string) error {
 	for _, l := range links {
 		if err := downloadImage(l, targetFolder); err != nil {
-			return err
+			log.Printf("[ERROR] Failed to download %s to %s", l, targetFolder)
+			continue
 		}
 	}
 	return nil

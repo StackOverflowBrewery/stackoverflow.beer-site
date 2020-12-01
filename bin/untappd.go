@@ -4,11 +4,9 @@ import (
 	"bytes"
 	"errors"
 	"fmt"
-	"io"
 	"log"
 	"net/http"
 	"os"
-	"path"
 	"path/filepath"
 	"regexp"
 	"strconv"
@@ -205,12 +203,7 @@ func parseCheckin(checkinURL string) (beerID, imageLink string) {
 		return
 	}
 
-	beerID, beerName, _ := extractBeerIDFromCheckin(doc)
-
-	contentFolder, err := ensureBeerContentFolder(beerID, beerName)
-	if err != nil {
-		log.Fatalf("Failed to create beer content folder: %s", err)
-	}
+	beerID, _, _ = extractBeerIDFromCheckin(doc)
 
 	doc.Find("meta").Each(func(i int, s *goquery.Selection) {
 		val, exists := s.Attr("property")
@@ -221,24 +214,6 @@ func parseCheckin(checkinURL string) (beerID, imageLink string) {
 			}
 		}
 	})
-	if imageLink != "" && !strings.HasSuffix(imageLink, ".png") {
-		resp, err := http.Get(imageLink)
-		if err != nil {
-			log.Fatalf("Failed to download checkin image")
-		}
-		defer resp.Body.Close()
-		imageName := path.Base(imageLink[7:])
-		outPath := filepath.Join(contentFolder, imageName)
-		outFile, err := os.Create(outPath)
-		if err != nil {
-			log.Fatalf("Failed to create output image: %s", err)
-		}
-		defer outFile.Close()
-		_, err = io.Copy(outFile, resp.Body)
-		if err != nil {
-			log.Fatalf("Failed to write image to disk: %s", err)
-		}
-	}
 	return beerID, imageLink
 }
 
