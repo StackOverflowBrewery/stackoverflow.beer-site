@@ -40,12 +40,8 @@ type batch struct {
 	State       string   `json:"state"`
 }
 
-func exportBatches(bfClient *brewchild.Client, state string) {
+func exportBatches(batches []*brewchild.Batch, state string) []batch {
 	outFilePath := filepath.Join(dataBaseDir, state+".json")
-	batches, err := bfClient.Batches(brewchild.Status(state), brewchild.Complete(true), brewchild.Limit(100))
-	if err != nil {
-		log.Fatalf("Failed to retrieve batches from brewfather: %s", err)
-	}
 	outFile, err := os.Create(outFilePath)
 	if err != nil {
 		log.Fatalf("Failed to create output file")
@@ -92,16 +88,17 @@ func exportBatches(bfClient *brewchild.Client, state string) {
 				untappdID = m[1]
 				b[i].UntappdLink = fmt.Sprintf("https://untappd.com/qr/beer/%s", untappdID)
 				b[i].UntappdID = m[1]
-				ensureBeerContentExists(untappdID)
+				//ensureBeerContentExists(untappdID)
 			}
 		}
-		addDataToBeer(b[i], untappdID)
+		//addDataToBeer(b[i], untappdID)
 		ensureBatchPostData(b[i])
 	}
 
 	if err := json.NewEncoder(outFile).Encode(b); err != nil {
 		log.Fatalf("Failed to encode output data")
 	}
+	return b
 }
 
 var beerContentBase = "../content/beers/"
