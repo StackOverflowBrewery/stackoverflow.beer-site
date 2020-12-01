@@ -1,6 +1,5 @@
 /resources/_gen
 /public
-/data/batches
 /static/images/untappd/*.jpg
 /static/images/untappd/*.jpeg
 secrets.txt
