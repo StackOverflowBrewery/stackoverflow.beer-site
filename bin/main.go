@@ -55,6 +55,7 @@ func downloadImages(links []string, targetFolder string) error {
 }
 
 func downloadImage(link, targetFolder string) error {
+	log.Printf("Downloading image %s to %s", link, targetFolder)
 	imageName := path.Base(link)
 	resp, err := http.Get(link)
 	if err != nil {
@@ -83,12 +84,15 @@ func downloadBatches() {
 	}
 
 	for _, state := range []string{"Completed", "Planning", "Brewing", "Fermenting", "Conditioning", "Archived"} {
+		log.Printf("Downloading %s batches", state)
 		batches, err := bfClient.Batches(brewchild.Status(state), brewchild.Complete(true), brewchild.Limit(100))
 		if err != nil {
 			log.Fatalf("Failed to retrieve batches from brewfather: %s", err)
 		}
+		log.Printf("Got %d %s batches", len(batches), state)
 		myBatches := exportBatches(batches, state)
 		for _, m := range myBatches {
+			log.Printf("Adding batch number %d with untappdID %s", m.Number, m.UntappdID)
 			if err := str.AddBatch(m); err != nil {
 				log.Fatalf("Failed to add batch: %s", err)
 			}
@@ -113,11 +117,15 @@ func scrapeUntappdImages() map[string][]string {
 
 	for _, item := range feed.Channel.Items {
 		beerID, imageLink := parseCheckin(item.Link)
-
+		if beerID == "" {
+			log.Printf("Didn't receive usabel data for checkin %s", item.Link)
+			continue
+		}
 		links := linkColl[beerID]
 		links = append(links, imageLink)
 		linkColl[beerID] = links
 		if _, exists := str.Beers[beerID]; !exists {
+			log.Printf("Found not existing beer %s in untappd feed, scraping it", beerID)
 			br, err := scrapeBeerDetails(beerID)
 			if err != nil {
 				log.Fatalf("Failed to scrape beer infos for untappd id %s: %s", beerID, err)

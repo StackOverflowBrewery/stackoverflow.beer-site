@@ -66,7 +66,7 @@ func ensureBeerContent(contentFolder string, b *beer) error {
 		log.Printf("Index file %s already exists", indexPath)
 		return nil
 	}
-
+	log.Printf("Index file %s does not exist, creating", indexPath)
 	indexFile, err := os.Create(indexPath)
 	if err != nil {
 		return fmt.Errorf("Failed to create index file %s: %w", indexPath, err)
@@ -90,6 +90,7 @@ func ensureBeerContent(contentFolder string, b *beer) error {
 }
 
 func scrapeBeerDetails(untappdID string) (*beer, error) {
+	log.Printf("Scraping details for beer %s", untappdID)
 	beerLink := "/b/awesome-beer/" + untappdID
 	resp, err := http.Get("https://untappd.com" + beerLink)
 	if err != nil {
@@ -101,11 +102,10 @@ func scrapeBeerDetails(untappdID string) (*beer, error) {
 	if err != nil {
 		return nil, fmt.Errorf("Failed to parse beer page: %w", err)
 	}
-	beerName := doc.Find("h1").First().Text()
-	if beerName == "Checking your browser before accessing untappd.com." {
-		log.Printf("Ran into browser check, need to try again")
-		return nil, errors.New("Browser check")
+	if err := checkBrowserCheck(doc); err != nil {
+		return nil, err
 	}
+	beerName := doc.Find("h1").First().Text()
 
 	beerDetailsABVText := doc.Find("div.details p.abv").First().Text()
 	beerDetailsIBUText := doc.Find("div.details p.ibu").First().Text()
@@ -117,6 +117,7 @@ func scrapeBeerDetails(untappdID string) (*beer, error) {
 	beerDescription = strings.ReplaceAll(beerDescription, "\n", "")
 
 	return &beer{
+		UntappdID:   untappdID,
 		Name:        beerName,
 		Description: beerDescription,
 		ABV:         extractNumber(beerDetailsABVText),
@@ -134,6 +135,10 @@ func parseCheckin(checkinURL string) (beerID, imageLink string) {
 	doc, err := goquery.NewDocumentFromReader(resp.Body)
 	if err != nil {
 		log.Fatalf("Failed to parse checkin page")
+	}
+	if err := checkBrowserCheck(doc); err != nil {
+		log.Printf("Ran into browser check for checkin %s", checkinURL)
+		return
 	}
 
 	beerID, beerName, _ := extractBeerIDFromCheckin(doc)
@@ -229,4 +234,12 @@ func extractNumber(in string) string {
 		return m[1]
 	}
 	return ""
+}
+
+func checkBrowserCheck(doc *goquery.Document) error {
+	beerName := doc.Find("h1").First().Text()
+	if beerName == "Checking your browser before accessing untappd.com." {
+		return errors.New("Browser check")
+	}
+	return nil
 }
