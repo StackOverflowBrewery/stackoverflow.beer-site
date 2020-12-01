@@ -1,6 +1,14 @@
+{{ $pages := where site.AllPages ".Type" "beers" }}
+{{ $beerPages := where $pages ".Params.untappdid" .untappdId }}
+{{ $beerPage := index $beerPages 0 }}
 <article class="mini-post">
   <header>
-    <h2>{{ .name }} {{ if .untappdLink }}<a href="{{.untappdLink}}"><img class="untappd-icon" src="/images/untappd-app-icon.png"></a>{{ end }}</h2>
+    {{ if $beerPage }}<a href="{{ $beerPage.RelPermalink }}"> {{ end }}
+    <h2>
+      {{ .name }} 
+      {{ if .untappdLink }}<a href="{{.untappdLink}}"><img class="untappd-icon" src="/images/untappd-app-icon.png"></a>{{ end }}
+    </h2>
+    {{ if $beerPage }}</a> {{ end }}
   </header>
   <div class="beer-info-box">
     <span class="beer-info">
