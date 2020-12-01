@@ -57,6 +57,10 @@ func downloadImages(links []string, targetFolder string) error {
 func downloadImage(link, targetFolder string) error {
 	log.Printf("Downloading image %s to %s", link, targetFolder)
 	imageName := path.Base(link)
+	if imageName == "badge-beer-default.png" {
+		log.Printf("Skipping default beer batch")
+		return nil
+	}
 	resp, err := http.Get(link)
 	if err != nil {
 		return fmt.Errorf("Failed to download %s: %w", link, err)
