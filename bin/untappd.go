@@ -62,7 +62,7 @@ type feedItem struct {
 
 func ensureBeerContent(contentFolder string, b *beer) error {
 	indexPath := filepath.Join(contentFolder, "index.md")
-	if _, err := os.Stat(indexPath); os.IsExist(err) {
+	if _, err := os.Stat(indexPath); !os.IsNotExist(err) {
 		log.Printf("Index file %s already exists", indexPath)
 		return nil
 	}

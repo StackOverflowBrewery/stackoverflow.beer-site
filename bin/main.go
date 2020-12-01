@@ -32,7 +32,7 @@ func generateContent(imageLinks map[string][]string) {
 			log.Fatalf("Failed to create content in folder %s: %s", beerContentFolder, err)
 		}
 		if err := downloadImages(imageLinks[b.UntappdID], beerContentFolder); err != nil {
-			log.Fatalf("%s", err)
+			log.Printf("[ERROR] %s", err)
 		}
 
 		for _, bt := range b.Batches {
@@ -128,10 +128,12 @@ func scrapeUntappdImages() map[string][]string {
 			log.Printf("Found not existing beer %s in untappd feed, scraping it", beerID)
 			br, err := scrapeBeerDetails(beerID)
 			if err != nil {
-				log.Fatalf("Failed to scrape beer infos for untappd id %s: %s", beerID, err)
+				log.Printf("[ERROR] Failed to scrape beer infos for untappd id %s: %s", beerID, err)
+				continue
 			}
 			if err := str.AddBeer(br); err != nil {
-				log.Fatalf("Failed to add beer to store: %s", err)
+				log.Printf("[ERROR] Failed to add beer to store: %s", err)
+				continue
 			}
 		}
 	}
