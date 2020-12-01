@@ -1,6 +1,7 @@
 package main
 
 import (
+	"bytes"
 	"errors"
 	"fmt"
 	"io"
@@ -10,27 +11,32 @@ import (
 	"path"
 	"path/filepath"
 	"regexp"
+	"strconv"
 	"strings"
-	"text/template"
 	"time"
 
 	"github.com/PuerkitoBio/goquery"
+	"github.com/gernest/front"
+	"gopkg.in/yaml.v3"
 )
 
-var indexTmpl = template.Must(template.New("index").Parse(`+++
-title = "{{.BeerName}}"
-description = "{{.Description}}"
-abv = "{{.ABV}}"
-ibu = "{{.IBU}}"
-untappdId = "{{.UntappdID}}"
-author = "StackOverflow Brewery"
-date = "{{.Date}}"
-tags = ["Bier"]
-categories = ["Bier"]
-comments = false
-removeBlur = false
-draft = false
-+++`))
+var frontMatterDelimiter = []byte("---\n")
+
+type frontMatter struct {
+	Title       string  `yaml:"title"`
+	Description string  `yaml:"description"`
+	ABV         float64 `yaml:"abv"`
+	IBU         int     `yaml:"ibu"`
+	UntappdID   string  `yaml:"untappdId"`
+
+	Author     string    `yaml:"author"`
+	Date       time.Time `yaml:"date"`
+	Tags       []string  `yaml:"tags"`
+	Categories []string  `yaml:"categories"`
+	Comments   bool      `yaml:"comments"`
+	RemoveBlur bool      `yaml:"removeBlur"`
+	Draft      bool      `yaml:"draft"`
+}
 
 var (
 	detailRegex = regexp.MustCompile(`([\d\.]+).*`)
@@ -60,32 +66,84 @@ type feedItem struct {
 	PubDate string `xml:"pubDate"`
 }
 
-func ensureBeerContent(contentFolder string, b *beer) error {
+func ensureBeerContent(contentFolder string, b *beer) (err error) {
+	m := front.NewMatter()
+	m.Handle("---", front.YAMLHandler)
+	var body string
+	var indexFile *os.File
+
 	indexPath := filepath.Join(contentFolder, "index.md")
-	if _, err := os.Stat(indexPath); !os.IsNotExist(err) {
-		log.Printf("Index file %s already exists", indexPath)
-		return nil
+
+	if indexFile, err = os.Open(indexPath); err == nil {
+		log.Printf("Index file %s already exists, updating front matter", indexPath)
+		_, body, err = m.Parse(indexFile)
+		if err != nil {
+			indexFile.Close()
+			return fmt.Errorf("Failed to parse front matter of %s: %w", indexPath, err)
+		}
+		indexFile.Close()
 	}
-	log.Printf("Index file %s does not exist, creating", indexPath)
-	indexFile, err := os.Create(indexPath)
+
+	fmBuf := bytes.NewBuffer(nil)
+	fm := &frontMatter{
+		Title:       b.Name,
+		Description: b.Description,
+		UntappdID:   b.UntappdID,
+		Author:      "StackOverflow Brewery",
+		Tags:        []string{"Bier"},
+		Categories:  []string{"Bier"},
+		Comments:    false,
+		RemoveBlur:  false,
+		Draft:       false,
+	}
+
+	if bt := b.LatestBatch(); bt != nil {
+		fm.Date, err = time.Parse(time.RFC3339, bt.BrewDate)
+		if err != nil {
+			return fmt.Errorf("Found unparseable date on batch %d: %w", bt.Number, err)
+		}
+		fm.ABV = bt.ABV
+		fm.IBU = bt.IBU
+	} else {
+		abv, err := strconv.ParseFloat(b.ABV, 64)
+		if err != nil {
+			return fmt.Errorf("Failed to parse abv string %s: %w", b.ABV, err)
+		}
+		ibu, err := strconv.Atoi(b.IBU)
+		if err != nil {
+			return fmt.Errorf("Failed to parse ibu string %s: %w", b.IBU, err)
+		}
+		fm.ABV = abv
+		fm.IBU = ibu
+		fm.Date, _ = time.Parse(time.RFC3339, "2020-01-01T01:00:00+01:00")
+	}
+
+	if err := yaml.NewEncoder(fmBuf).Encode(fm); err != nil {
+		return fmt.Errorf("Failed to marshal frontmatter: %w", err)
+	}
+
+	indexFile, err = os.Create(indexPath)
 	if err != nil {
 		return fmt.Errorf("Failed to create index file %s: %w", indexPath, err)
 	}
-
 	defer indexFile.Close()
-	tmplData := map[string]string{
-		"BeerName":    b.Name,
-		"Description": b.Description,
-		"UntappdID":   b.UntappdID,
-		"ABV":         b.ABV,
-		"IBU":         b.IBU,
-		"Date":        time.Now().Format(time.RFC3339),
+
+	if _, err := indexFile.Write(frontMatterDelimiter); err != nil {
+		return fmt.Errorf("Failed to write to %s: %w", indexPath, err)
+	}
+	if _, err := indexFile.Write(fmBuf.Bytes()); err != nil {
+		return fmt.Errorf("Failed to write to %s: %w", indexPath, err)
+	}
+	if _, err := indexFile.Write([]byte("\n")); err != nil {
+		return fmt.Errorf("Failed to write to %s: %w", indexPath, err)
+	}
+	if _, err := indexFile.Write(frontMatterDelimiter); err != nil {
+		return fmt.Errorf("Failed to write to %s: %w", indexPath, err)
+	}
+	if _, err := indexFile.Write([]byte(body)); err != nil {
+		return fmt.Errorf("Failed to write to %s: %w", indexPath, err)
 	}
 
-	// TODO only manipulate front matter
-	if err := indexTmpl.Execute(indexFile, tmplData); err != nil {
-		return fmt.Errorf("Failed to render %s: %w", indexPath, err)
-	}
 	return nil
 }
 
