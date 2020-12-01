@@ -4,6 +4,9 @@ description: 'A fruity and juicy NEIPA with a little bit more than a hint of smo
     The smoke coming out of my ears when people don''t wear their fucking mask properly. '
 abv: 7.5
 ibu: 34
+og: 0
+buGuRation: 0
+beerColor: 0
 untappdId: "3868263"
 author: StackOverflow Brewery
 date: 2020-01-01T01:00:00+01:00
