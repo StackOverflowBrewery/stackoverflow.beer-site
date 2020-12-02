@@ -6,6 +6,8 @@ github.com/davecgh/go-spew v1.1.0 h1:ZDRjVQ15GmhC3fiQ8ni8+OwkZQO4DARzQgrnXU1Liz8
 github.com/davecgh/go-spew v1.1.0/go.mod h1:J7Y8YcW2NihsgmVo/mv3lAwl/skON4iLHjSsI+c5H38=
 github.com/dereulenspiegel/go-brewchild v0.0.0-20201117171805-b02ada1171e6 h1:8AUKeY8LmGlBDpuWxZ7sQV0om2bpfV61aDqbgIi6PJM=
 github.com/dereulenspiegel/go-brewchild v0.0.0-20201117171805-b02ada1171e6/go.mod h1:9vxSex0zvPWJnulfQgt4+LFHnA0NPPccFW0XSmYyFaw=
+github.com/dereulenspiegel/go-brewchild v0.0.0-20201202130658-4f78b99ba4cc h1:ZBhgthXsSrbeyCT3q/Hd31nZHLd2A3hJvA3HrY+d0KU=
+github.com/dereulenspiegel/go-brewchild v0.0.0-20201202130658-4f78b99ba4cc/go.mod h1:9vxSex0zvPWJnulfQgt4+LFHnA0NPPccFW0XSmYyFaw=
 github.com/gernest/front v0.0.0-20181129160812-ed80ca338b88 h1:fqfzqvgJfq5Sw7VZyb+OoiOKQzI27pkwhvf/V46XEl8=
 github.com/gernest/front v0.0.0-20181129160812-ed80ca338b88/go.mod h1:FwEMwQ5+xky8tbzDLj72k2RAqXnFByLNwxg+9UZDtqU=
 github.com/pmezard/go-difflib v1.0.0 h1:4DBwDE0NGyQoBHbLQYPwSUPoCMWR5BEzIk/f1lZbAQM=
