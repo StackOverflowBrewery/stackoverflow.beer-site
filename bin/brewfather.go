@@ -46,22 +46,28 @@ type hop struct {
 	Alpha  float64 `json:"alpha" yaml:"alpha"`
 }
 
+type yeast struct {
+	Name       string `json:"name" yaml:"name"`
+	Laboratory string `json:"laboratory" yaml:"laboratory"`
+}
+
 type batch struct {
-	Name        string  `json:"name"`
-	ABV         float64 `json:"abv"`
-	IBU         int     `json:"ibu"`
-	Color       float64 `json:"color"`
-	BrewDate    string  `json:"brewDate"`
-	OG          float64 `json:"og"`
-	BuGuRation  float64 `json:"buGuRatio"`
-	UntappdLink string  `json:"untappdLink"`
-	UntappdID   string  `json:"untappdId"`
-	Number      int     `json:"number"`
-	State       string  `json:"state"`
-	Malts       []*malt `json:"malts"`
-	Hops        []*hop  `json:"hops"`
-	Miscs       []*misc `json:"miscs"`
-	FG          float64 `json:"fg"`
+	Name        string   `json:"name"`
+	ABV         float64  `json:"abv"`
+	IBU         int      `json:"ibu"`
+	Color       float64  `json:"color"`
+	BrewDate    string   `json:"brewDate"`
+	OG          float64  `json:"og"`
+	BuGuRation  float64  `json:"buGuRatio"`
+	UntappdLink string   `json:"untappdLink"`
+	UntappdID   string   `json:"untappdId"`
+	Number      int      `json:"number"`
+	State       string   `json:"state"`
+	Malts       []*malt  `json:"malts"`
+	Hops        []*hop   `json:"hops"`
+	Miscs       []*misc  `json:"miscs"`
+	FG          float64  `json:"fg"`
+	Yeasts      []*yeast `json:"yeasts"`
 }
 
 func exportBatches(batches []*brewchild.Batch, state string) []batch {
@@ -131,6 +137,17 @@ func exportBatches(batches []*brewchild.Batch, state string) []batch {
 				Amount: bm.Amount,
 				Unit:   bm.Unit,
 				Usage:  bm.Use,
+			})
+		}
+
+		yeasts := bt.Yeasts
+		if len(yeasts) == 0 {
+			yeasts = bt.Recipe.Yeasts
+		}
+		for _, by := range yeasts {
+			b[i].Yeasts = append(b[i].Yeasts, &yeast{
+				Name:       by.Name,
+				Laboratory: by.Laboratory,
 			})
 		}
 

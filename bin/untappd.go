@@ -21,19 +21,20 @@ import (
 var frontMatterDelimiter = []byte("---\n")
 
 type frontMatter struct {
-	Title        string  `yaml:"title"`
-	Description  string  `yaml:"description"`
-	ABV          float64 `yaml:"abv"`
-	IBU          int     `yaml:"ibu"`
-	OG           float64 `yaml:"og"`
-	FG           float64 `yaml:"fg"`
-	BuGuRatio    float64 `yaml:"buGuRation"`
-	BeerColor    float64 `yaml:"beerColor"`
-	UntappdID    string  `yaml:"untappdId"`
-	Malts        []*malt `yaml:"malts"`
-	Hops         []*hop  `yaml:"hops"`
-	Miscs        []*misc `yaml:"miscs"`
-	LastBrewDate string  `yaml:"lastBrewDate"`
+	Title        string   `yaml:"title"`
+	Description  string   `yaml:"description"`
+	ABV          float64  `yaml:"abv"`
+	IBU          int      `yaml:"ibu"`
+	OG           float64  `yaml:"og"`
+	FG           float64  `yaml:"fg"`
+	BuGuRatio    float64  `yaml:"buGuRation"`
+	BeerColor    float64  `yaml:"beerColor"`
+	UntappdID    string   `yaml:"untappdId"`
+	Malts        []*malt  `yaml:"malts"`
+	Hops         []*hop   `yaml:"hops"`
+	Miscs        []*misc  `yaml:"miscs"`
+	Yeasts       []*yeast `yaml:"yeasts"`
+	LastBrewDate string   `yaml:"lastBrewDate"`
 
 	Author     string    `yaml:"author"`
 	Date       time.Time `yaml:"date"`
