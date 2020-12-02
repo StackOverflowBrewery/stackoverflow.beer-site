@@ -25,19 +25,43 @@ var (
 	untappdIDRegex = regexp.MustCompile(`untappd\(([\d]+)\)`)
 )
 
+type malt struct {
+	Name     string  `json:"name"`
+	Supplier string  `json:"supplier"`
+	Amount   float64 `json:"amount"`
+}
+
+type misc struct {
+	Name   string  `json:"name" yaml:"name"`
+	Amount float64 `json:"amount" yaml:"amount"`
+	Unit   string  `json:"unit" yaml:"unit"`
+	Usage  string  `json:"usage" yaml:"usage"`
+}
+
+type hop struct {
+	Name   string  `json:"name" yaml:"name"`
+	Origin string  `json:"origin" yaml:"origin"`
+	Amount float64 `json:"amount" yaml:"amount"`
+	Usage  string  `json:"usage" yaml:"usage"`
+	Alpha  float64 `json:"alpha" yaml:"alpha"`
+}
+
 type batch struct {
-	Name        string   `json:"name"`
-	ABV         float64  `json:"abv"`
-	IBU         int      `json:"ibu"`
-	Color       float64  `json:"color"`
-	BrewDate    string   `json:"brewDate"`
-	Hops        []string `json:"hops"`
-	OG          float64  `json:"og"`
-	BuGuRation  float64  `json:"buGuRatio"`
-	UntappdLink string   `json:"untappdLink"`
-	UntappdID   string   `json:"untappdId"`
-	Number      int      `json:"number"`
-	State       string   `json:"state"`
+	Name        string  `json:"name"`
+	ABV         float64 `json:"abv"`
+	IBU         int     `json:"ibu"`
+	Color       float64 `json:"color"`
+	BrewDate    string  `json:"brewDate"`
+	OG          float64 `json:"og"`
+	BuGuRation  float64 `json:"buGuRatio"`
+	UntappdLink string  `json:"untappdLink"`
+	UntappdID   string  `json:"untappdId"`
+	Number      int     `json:"number"`
+	State       string  `json:"state"`
+	Malts       []*malt `json:"malts"`
+	Hops        []*hop  `json:"hops"`
+	Miscs       []*misc `json:"miscs"`
+	FG          float64 `json:"fg"`
 }
 
 func exportBatches(batches []*brewchild.Batch, state string) []batch {
@@ -57,6 +81,7 @@ func exportBatches(batches []*brewchild.Batch, state string) []batch {
 			Color:  bt.EstimatedColor,
 			Number: bt.BatchNumber,
 			State:  state,
+			FG:     bt.MeasuredFG, // TODO convert to plato
 		}
 		if bt.OG != 0.0 {
 			b[i].OG = brewchild.SGToPlato(bt.OG)
@@ -82,16 +107,41 @@ func exportBatches(batches []*brewchild.Batch, state string) []batch {
 			b[i].BuGuRation = bt.EstimatedBuGuRatio
 		}
 
+		for _, bh := range bt.Hops {
+			b[i].Hops = append(b[i].Hops, &hop{
+				Name:   bh.Name,
+				Amount: bh.Amount,
+				Alpha:  bh.Alpha,
+				Origin: bh.Origin,
+				Usage:  bh.Usage,
+			})
+		}
+
+		for _, bm := range bt.Fermentables {
+			b[i].Malts = append(b[i].Malts, &malt{
+				Name:     bm.Name,
+				Supplier: bm.Supplier,
+				Amount:   bm.AmountKG,
+			})
+		}
+
+		for _, bm := range bt.BatchMiscs {
+			b[i].Miscs = append(b[i].Miscs, &misc{
+				Name:   bm.Name,
+				Amount: bm.Amount,
+				Unit:   bm.Unit,
+				Usage:  bm.Use,
+			})
+		}
+
 		var untappdID string
 		if bt.BatchNotes != "" {
 			if m := untappdIDRegex.FindStringSubmatch(bt.BatchNotes); len(m) > 1 {
 				untappdID = m[1]
 				b[i].UntappdLink = fmt.Sprintf("https://untappd.com/qr/beer/%s", untappdID)
 				b[i].UntappdID = m[1]
-				//ensureBeerContentExists(untappdID)
 			}
 		}
-		//addDataToBeer(b[i], untappdID)
 		ensureBatchPostData(b[i])
 	}
 
