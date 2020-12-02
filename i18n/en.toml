@@ -13,3 +13,27 @@
 
 [original_gravity]
   other = "OG"
+
+[bugu_ratio]
+  other = "Bu-Gu-Ratio"
+
+[beer_color]
+    other = "Colour"
+
+[facts]
+  other = "Facts"
+
+[malt]
+  one = "Malt"
+  other = "Malts"
+
+[hop]
+  one = "Hop"
+  other = "Hops"
+
+[misc]
+  other = "Misc"
+
+[yeast]
+  one = "Yeast"
+  other = "Yeasts"

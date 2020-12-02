@@ -12,7 +12,7 @@
     
       var slider = tns({
         container: '.my-slider',
-        items: 3,
+        items: 4,
         slideBy: 'page',
         autoplay: true,
         controls: false,
@@ -21,12 +21,61 @@
         autoplayButtonOutput: false
       });
       </script>
+    <div class="content">
+      <div style="display:flex; flex-direction: row; justify-content: left; align-items: top;">
+        <div class="beer-info">
+          <h4>{{ i18n "facts" }}</h4>
+          <div><span class="beer-info-title">{{ i18n "original_gravity" }}:</span> {{ lang.NumFmt 1 .Params.og " . ,"}} °P</div>
+          <div><span class="beer-info-title">{{ i18n "abv" }}:</span> {{ lang.NumFmt 1 .Params.abv " . ," }} %</div>
+          <div><span class="beer-info-title">{{ i18n "ibu" }}:</span> {{ .Params.ibu }} IBU</div>
+          <div><span class="beer-info-title">{{ i18n "bugu_ratio" }}:</span> {{ lang.NumFmt 2 .Params.buguration " . ," }}</div>
+          <div><span class="beer-info-title">{{ i18n "beer_color" }}:</span> {{ .Params.beercolor }} EBC</div>
+        </div>
+
+        <div>
+          <h4>{{ i18n "malt" .Params.malts }}</h2>
+          <ul>
+          {{ range sort .Params.malts "amount" "desc" }}
+            <li>{{ .supplier }} {{ .name }}</li>
+          {{ end }}
+          </ul>
+        </div>
+
+        <div>
+          <h4>{{ i18n "hop" .Params.hops }}</h4>
+          <ul>
+            {{ range sort .Params.hops "amount" "desc" }}
+              <li>{{ .name }} {{.alpha}}% ({{.origin}})</li>
+            {{ end }}
+          </ul>
+        </div>
+
+        {{ if gt (len .Params.yeasts) 0 }}
+        <div>
+          <h4>{{ i18n "yeast" .Params.yeasts}}</h4>
+          <ul>
+            {{ range sort .Params.yeasts }}
+              <li>{{ .laboratory }} {{.name}}</li>
+            {{ end }}
+          </ul>
+        </div>
+        {{ end }}
+
+        {{ if gt (len .Params.miscs) 0 }}
+        <div>
+          <h4>{{ i18n "misc" .Params.miscs }}</h4>
+          <ul>
+            {{ range sort .Params.miscs "amount" "desc" }}
+            <li>{{ .name }}</li>
+            {{ end }}
+          </ul>
+        </div>
+        {{ end }}
+      </div>
+      {{ .Content }}
+    </div>
     <div id="socnet-share">
       {{ partial "share-buttons" . }}
-    </div>
-    <div class="content">
-      {{ .Render "featured" }}
-      {{ .Content }}
     </div>
   </article>
   {{ if not ( eq .Params.comments false) }}

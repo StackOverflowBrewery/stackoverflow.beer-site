@@ -38,6 +38,7 @@ hops:
     usage: Bittering
     alpha: 5
 miscs: []
+yeasts: []
 lastBrewDate: "2020-08-23T00:00:00+02:00"
 author: StackOverflow Brewery
 date: 2020-08-23T00:00:00+02:00

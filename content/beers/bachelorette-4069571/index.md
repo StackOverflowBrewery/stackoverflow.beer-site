@@ -25,6 +25,7 @@ hops:
     usage: Aroma
     alpha: 8
 miscs: []
+yeasts: []
 lastBrewDate: "2020-11-25T00:00:00+01:00"
 author: StackOverflow Brewery
 date: 2020-11-25T00:00:00+01:00

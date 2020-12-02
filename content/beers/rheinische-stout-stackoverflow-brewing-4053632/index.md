@@ -1,6 +1,6 @@
 ---
 title: Rheinische Stout
-description: ' A dark, malty coffeeish Stout dark the shadow of Dortmunder U.Brewed
+description: 'A dark, malty coffeeish Stout dark the shadow of Dortmunder U.Brewed
     in the Shadow of the Dortmunder U this beer is perfect to be enjoyed in the winter. '
 abv: 5.8
 ibu: 31
@@ -26,6 +26,7 @@ hops:
     usage: Both
     alpha: 5
 miscs: []
+yeasts: []
 lastBrewDate: "2020-11-01T00:00:00+01:00"
 author: StackOverflow Brewery
 date: 2020-11-01T00:00:00+01:00

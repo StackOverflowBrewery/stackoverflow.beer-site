@@ -13,3 +13,26 @@
 
 [original_gravity]
   other = "Stammwürze"
+
+[bugu_ratio]
+  other = "Bu-Gu-Ratio"
+
+[beer_color]
+    other = "Farbe"
+
+[facts]
+  other = "Fakten"
+
+[malt]
+  one = "Malz"
+  other = "Malze"
+
+[hop]
+  other = "Hopfen"
+
+[misc]
+  other = "Sonstiges"
+
+[yeast]
+  one = "Hefe"
+  other = "Hefen"

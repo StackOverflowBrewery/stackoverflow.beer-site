@@ -37,6 +37,7 @@ hops:
     usage: Both
     alpha: 11
 miscs: []
+yeasts: []
 lastBrewDate: "2020-07-03T10:05:54+02:00"
 author: StackOverflow Brewery
 date: 2020-07-03T10:05:54+02:00
