@@ -35,6 +35,7 @@ type frontMatter struct {
 	Miscs        []*misc  `yaml:"miscs"`
 	Yeasts       []*yeast `yaml:"yeasts"`
 	LastBrewDate string   `yaml:"lastBrewDate"`
+	LastBatchID  int      `yaml:"lastBatch"`
 
 	Author     string    `yaml:"author"`
 	Date       time.Time `yaml:"date"`
@@ -118,6 +119,7 @@ func ensureBeerContent(contentFolder string, b *beer) (err error) {
 		fm.Hops = bt.Hops
 		fm.Miscs = bt.Miscs
 		fm.LastBrewDate = bt.BrewDate
+		fm.LastBatchID = bt.Number
 	} else {
 		abv, err := strconv.ParseFloat(b.ABV, 64)
 		if err != nil {
