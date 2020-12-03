@@ -29,7 +29,7 @@
           <div><span class="beer-info-title">{{ i18n "abv" }}:</span> {{ lang.NumFmt 1 .Params.abv " . ," }} %</div>
           <div><span class="beer-info-title">{{ i18n "ibu" }}:</span> {{ .Params.ibu }} IBU</div>
           <div><span class="beer-info-title">{{ i18n "bugu_ratio" }}:</span> {{ lang.NumFmt 2 .Params.buguration " . ," }}</div>
-          <div><span class="beer-info-title">{{ i18n "beer_color" }}:</span> {{ .Params.beercolor }} EBC</div>
+          <div><span class="beer-info-title">{{ i18n "beer_color" }}:</span> {{ .Params.beercolor | int }} EBC</div>
         </div>
 
         <div>
