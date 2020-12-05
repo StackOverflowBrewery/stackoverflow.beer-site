@@ -120,6 +120,7 @@ func ensureBeerContent(contentFolder string, b *beer) (err error) {
 		fm.Miscs = bt.Miscs
 		fm.LastBrewDate = bt.BrewDate
 		fm.LastBatchID = bt.Number
+		fm.Yeasts = bt.Yeasts
 	} else {
 		abv, err := strconv.ParseFloat(b.ABV, 64)
 		if err != nil {

@@ -49,6 +49,7 @@ type hop struct {
 type yeast struct {
 	Name       string `json:"name" yaml:"name"`
 	Laboratory string `json:"laboratory" yaml:"laboratory"`
+	ProductID  string `json:"productId" yaml:"productId"`
 }
 
 type batch struct {
@@ -141,13 +142,17 @@ func exportBatches(batches []*brewchild.Batch, state string) []batch {
 		}
 
 		yeasts := bt.Yeasts
+		log.Printf("Batch %d has %d batch yeasts", bt.BatchNumber, len(bt.Yeasts))
 		if len(yeasts) == 0 {
+			log.Printf("No yeasts found falling back to recipe yeasts for batch %d", bt.BatchNumber)
 			yeasts = bt.Recipe.Yeasts
 		}
 		for _, by := range yeasts {
+			log.Printf("Appending yeasr %s to batch %d", by.Name, bt.BatchNumber)
 			b[i].Yeasts = append(b[i].Yeasts, &yeast{
 				Name:       by.Name,
 				Laboratory: by.Laboratory,
+				ProductID:  by.ProductID,
 			})
 		}
 
