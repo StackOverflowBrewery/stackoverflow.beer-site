@@ -24,7 +24,7 @@
   other = "Fakten"
 
 [malt]
-  one = "Malz"
+#  one = "Malz"
   other = "Malze"
 
 [hop]
