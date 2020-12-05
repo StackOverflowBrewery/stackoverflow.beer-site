@@ -26,8 +26,12 @@ hops:
     usage: Both
     alpha: 5
 miscs: []
-yeasts: []
+yeasts:
+  - name: Voss Kveik
+    laboratory: Lallemand (LalBrew)
+    productId: ""
 lastBrewDate: "2020-11-01T00:00:00+01:00"
+lastBatch: 6
 author: StackOverflow Brewery
 date: 2020-11-01T00:00:00+01:00
 tags:

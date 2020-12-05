@@ -1,6 +1,7 @@
 ---
 title: Emscherwasser
-description: 'A Märzen with high drinkability which is a bit more amber than expected. '
+description: A Märzen with high drinkability which is a bit more amber than expected.
+    S
 abv: 5.5
 ibu: 27
 og: 12.624824257047067
@@ -38,8 +39,12 @@ hops:
     usage: Bittering
     alpha: 5
 miscs: []
-yeasts: []
+yeasts:
+  - name: SafLager West European Lager
+    laboratory: Fermentis
+    productId: S-23
 lastBrewDate: "2020-08-23T00:00:00+02:00"
+lastBatch: 5
 author: StackOverflow Brewery
 date: 2020-08-23T00:00:00+02:00
 tags:

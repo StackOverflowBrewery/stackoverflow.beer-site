@@ -27,8 +27,12 @@ miscs:
     amount: 25
     unit: g
     usage: Boil
-yeasts: []
+yeasts:
+  - name: Nottingham Yeast
+    laboratory: Lallemand
+    productId: ""
 lastBrewDate: "2020-07-27T00:00:00+02:00"
+lastBatch: 4
 author: StackOverflow Brewery
 date: 2020-07-27T00:00:00+02:00
 tags:

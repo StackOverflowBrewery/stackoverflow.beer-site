@@ -23,8 +23,12 @@ hops:
     usage: Aroma
     alpha: 3
 miscs: []
-yeasts: []
+yeasts:
+  - name: Belgian Wit
+    laboratory: Mangrove Jack's
+    productId: M21
 lastBrewDate: "2020-06-12T20:20:59+02:00"
+lastBatch: 2
 author: StackOverflow Brewery
 date: 2020-06-12T20:20:59+02:00
 tags:

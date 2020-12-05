@@ -37,8 +37,12 @@ hops:
     usage: Both
     alpha: 11
 miscs: []
-yeasts: []
+yeasts:
+  - name: Fermentum FM32
+    laboratory: ""
+    productId: ""
 lastBrewDate: "2020-07-03T10:05:54+02:00"
+lastBatch: 3
 author: StackOverflow Brewery
 date: 2020-07-03T10:05:54+02:00
 tags:
