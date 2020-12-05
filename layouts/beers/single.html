@@ -52,10 +52,10 @@
 
         {{ if gt (len .Params.yeasts) 0 }}
         <div>
-          <h4>{{ i18n "yeast" .Params.yeasts}}</h4>
+          <h4>{{ i18n "yeast" .Params.yeasts }}</h4>
           <ul>
             {{ range sort .Params.yeasts }}
-              <li>{{ .laboratory }} {{.name}}</li>
+              <li>{{ .laboratory }} {{.name}} {{ if .productId }} ({{ .productId }}){{ end }}</li>
             {{ end }}
           </ul>
         </div>
