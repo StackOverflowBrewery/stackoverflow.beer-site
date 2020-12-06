@@ -16,8 +16,8 @@ steps:
 - name: build pages including drafts
   image: plugins/hugo
   settings:
-    # hugo_version: 0.78.2
-    extended: true
+    hugo_version: 0.79.0
+    extended: false
     config: config.toml
     content: content
     buildDrafts: true
@@ -51,8 +51,8 @@ steps:
 - name: build pages
   image: plugins/hugo
   settings:
-    # hugo_version: 0.78.2
-    extended: true
+    hugo_version: 0.79.0
+    extended: false
     config: config.toml
     content: content
   commands:
