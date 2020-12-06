@@ -14,14 +14,9 @@ steps:
   - git submodule update --recursive --remote
 
 - name: build pages including drafts
-  image: plugins/hugo
-  settings:
-    hugo_version: 0.79.0
-    extended: false
-    config: config.toml
-    content: content
-    buildDrafts: true
-    url: https://preview.stackoverflow.beer
+  image: dereulenspiegel/hugo-arm:0.79.0
+  commands:
+  - /usr/local/bin/hugo -D --baseUrl https://preview.stackoverflow.beer
   when:
     branch:
       exclude:
@@ -49,15 +44,9 @@ steps:
       - draft/*
 
 - name: build pages
-  image: plugins/hugo
-  settings:
-    hugo_version: 0.79.0
-    extended: false
-    config: config.toml
-    content: content
+  image: dereulenspiegel/hugo-arm:0.79.0
   commands:
-  - apk add libc6-compat libstdc++
-  - /bin/drone-hugo
+  -  /usr/local/bin/hugo
   when:
     branch: 
     - main
