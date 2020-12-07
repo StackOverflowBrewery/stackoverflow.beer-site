@@ -33,7 +33,7 @@
         </div>
 
         <div>
-          <h4>{{ i18n "malt" .Params.malts }}</h2>
+          <h4>{{ i18n "malt" (len .Params.malts) }}</h2>
           <ul>
           {{ range sort .Params.malts "amount" "desc" }}
             <li>{{ .supplier }} {{ .name }}</li>
@@ -42,7 +42,7 @@
         </div>
 
         <div>
-          <h4>{{ i18n "hop" .Params.hops }}</h4>
+          <h4>{{ i18n "hop" (len .Params.hops) }}</h4>
           <ul>
             {{ range sort .Params.hops "amount" "desc" }}
               <li>{{ .name }} {{.alpha}}% ({{.origin}})</li>
@@ -52,7 +52,7 @@
 
         {{ if gt (len .Params.yeasts) 0 }}
         <div>
-          <h4>{{ i18n "yeast" .Params.yeasts }}</h4>
+          <h4>{{ T "yeast" (len .Params.yeasts) }}</h4>
           <ul>
             {{ range sort .Params.yeasts }}
               <li>{{ .laboratory }} {{.name}} {{ if .productId }} ({{ .productId }}){{ end }}</li>
@@ -63,7 +63,7 @@
 
         {{ if gt (len .Params.miscs) 0 }}
         <div>
-          <h4>{{ i18n "misc" .Params.miscs }}</h4>
+          <h4>{{ i18n "misc" (len .Params.miscs) }}</h4>
           <ul>
             {{ range sort .Params.miscs "amount" "desc" }}
             <li>{{ .name }}</li>
