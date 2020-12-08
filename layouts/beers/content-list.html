@@ -1,7 +1,7 @@
 <article class="post">
   <header class="beer-list-header" style="border: 0;">
     <div class="title">
-      <h1><a href="{{ .RelPermalink }}">{{ .Title }}</a></h1>
+      <h1><a href="{{ .RelPermalink }}">{{ .Title }} {{ partial "beerglass" .Params }}</a></h1>
       {{ with .Description }}
         <p>{{ . }}</p>
       {{ end }}
