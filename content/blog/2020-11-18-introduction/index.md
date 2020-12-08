@@ -29,8 +29,6 @@ Anfangs hatte ich einige Skepsis, was diese Systeme anging, da der Maischprozess
 Grainfather zum "mal testen" zu teuer und der BrewZilla in Deutschland leider nicht gut verfügbar.
 In späteren Beitragen werde ich sicher noch mehr zum Brauheld schreiben. 
 
-{{< gist undefined undefined >}}
-
 # Was soll das hier?
 
 Auf dieser Seite möchte ich Nicht-Brauern Einblick in das Hobby, Hobbybrauern Tipps geben, Hardware
