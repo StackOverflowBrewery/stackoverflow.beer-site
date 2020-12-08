@@ -5,7 +5,7 @@
   <header>
     <h2>
       {{ if $beerPage }}<a href="{{ $beerPage.RelPermalink }}"> {{ end }}{{ .name }}{{ if $beerPage }}</a> {{ end }}
-      {{ partial "beerglass" $beerPage.Params }}
+      {{ partial "beerglass" (dict "ebc" $beerPage.Params.beercolor "size" 30) }}
       {{ if .untappdLink }}<a href="{{.untappdLink}}"><img class="untappd-icon" src="/images/untappd-app-icon.png"></a>{{ end }}
     </h2>
     
