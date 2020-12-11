@@ -92,12 +92,15 @@ steps:
   commands:
   - rm -rf data/batches
   - mkdir -p data/batches
+  - git status
   - cd bin
   - go run .
+  - git status
 
 - name: git add
   image: drone/git
   commands:
+  - git status
   - git add content/
   - git add data/
 
