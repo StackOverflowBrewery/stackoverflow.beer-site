@@ -31,10 +31,10 @@ yeasts:
   - name: Nottingham Yeast
     laboratory: Lallemand
     productId: ""
-lastBrewDate: "2020-07-27T00:00:00+02:00"
+lastBrewDate: "2020-07-26T22:00:00Z"
 lastBatch: 4
 author: StackOverflow Brewery
-date: 2020-07-27T00:00:00+02:00
+date: 2020-07-26T22:00:00Z
 tags:
   - Bier
 categories:

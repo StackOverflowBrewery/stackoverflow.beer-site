@@ -30,10 +30,10 @@ yeasts:
   - name: Voss Kveik
     laboratory: Lallemand (LalBrew)
     productId: ""
-lastBrewDate: "2020-11-01T00:00:00+01:00"
+lastBrewDate: "2020-10-31T23:00:00Z"
 lastBatch: 6
 author: StackOverflow Brewery
-date: 2020-11-01T00:00:00+01:00
+date: 2020-10-31T23:00:00Z
 tags:
   - Bier
 categories:

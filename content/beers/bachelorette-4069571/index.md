@@ -29,10 +29,10 @@ yeasts:
   - name: Belle Saison
     laboratory: Lallemand/Danstar
     productId: ""
-lastBrewDate: "2020-11-25T00:00:00+01:00"
+lastBrewDate: "2020-11-24T23:00:00Z"
 lastBatch: 7
 author: StackOverflow Brewery
-date: 2020-11-25T00:00:00+01:00
+date: 2020-11-24T23:00:00Z
 tags:
   - Bier
 categories:

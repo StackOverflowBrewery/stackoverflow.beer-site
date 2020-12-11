@@ -27,10 +27,10 @@ yeasts:
   - name: Belgian Wit
     laboratory: Mangrove Jack's
     productId: M21
-lastBrewDate: "2020-06-12T20:20:59+02:00"
+lastBrewDate: "2020-06-12T18:20:59Z"
 lastBatch: 2
 author: StackOverflow Brewery
-date: 2020-06-12T20:20:59+02:00
+date: 2020-06-12T18:20:59Z
 tags:
   - Bier
 categories:
