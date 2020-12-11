@@ -103,8 +103,9 @@ steps:
   - git status
   - git add content/
   - git add data/
+  - git commit -m "Automatic run of scraper"
 
-- name: push commit
+- name: push
   image: appleboy/drone-git-push
   settings:
     remote_name: origin
