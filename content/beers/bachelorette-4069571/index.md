@@ -1,6 +1,6 @@
 ---
 title: Bachelorette
-description: A very basic version of a Belgian Saison. Refreshing and crushable. S
+description: 'A very basic version of a Belgian Saison. Refreshing and crushable. '
 abv: 6.6
 ibu: 28
 og: 13.333941235608222
