@@ -92,10 +92,8 @@ steps:
   commands:
   - rm -rf data/batches
   - mkdir -p data/batches
-  - git status
   - cd bin
   - go run .
-  - git status
 
 - name: git add
   image: drone/git
@@ -103,7 +101,7 @@ steps:
   - git status
   - git add content/
   - git add data/
-  - git commit -m "Automatic run of scraper"
+  - git commit -m "Automatic run of scraper" || echo "No changes to commit"
 
 - name: push
   image: appleboy/drone-git-push
