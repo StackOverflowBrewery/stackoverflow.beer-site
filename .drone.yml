@@ -90,8 +90,8 @@ steps:
     BREWFATHER_APIKEY:
       from_secret: brewfather_apikey
   commands:
+  - rm -rf data/batches
   - mkdir -p data/batches
-  - rm -f data/batches/*
   - cd bin
   - go run .
 
