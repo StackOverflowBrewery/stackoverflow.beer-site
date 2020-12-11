@@ -1,12 +1,17 @@
 <section id="site-sidebar">
-  {{ if gt .Site.Data.batches.Completed 0 }}
     <section id="recent-posts">
+      {{ if gt .Site.Data.batches.Completed 0 }}
       <header>
         <h1>{{ i18n "recent_beers" }}</h1>
       </header>
       {{ range .Site.Data.batches.Completed }}
       {{ partial "sidebar-beer" . }}
       {{ end }}
+      {{ end }}
+
+      {{ $upcomingBeerSum := add (len .Site.Data.batches.Conditioning) (len .Site.Data.batches.Fermenting) }}
+      {{ $upcomingBeerSum := add $upcomingBeerSum (len .Site.Data.batches.Brewing) }}
+      {{ if gt $upcomingBeerSum 0 }}
       <header>
         <h1>{{ i18n "upcoming_beer" }}</h1>
       </header>
@@ -19,8 +24,8 @@
       {{ range .Site.Data.batches.Brewing }}
       {{ partial "sidebar-beer" . }}
       {{ end }}
+      {{ end }}
     </section>
-  {{ end }}
 
   {{ if .Site.Params.sidebar.categories }}
     {{ if ne ($.Scratch.Get "showCategories") false }}
