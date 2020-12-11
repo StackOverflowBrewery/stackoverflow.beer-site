@@ -98,8 +98,8 @@ steps:
 - name: git add
   image: drone/git
   commands:
-  - git add -f content/batches/*
-  - git add -f data/batches/*
+  - git add content/
+  - git add data/
 
 - name: push commit
   image: appleboy/drone-git-push
