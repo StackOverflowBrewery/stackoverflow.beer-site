@@ -1,7 +1,8 @@
 ---
 title: Rheinische Stout
-description: 'A dark, malty coffeeish Stout dark the shadow of Dortmunder U.Brewed
-    in the Shadow of the Dortmunder U this beer is perfect to be enjoyed in the winter. '
+description: A dark, malty coffeeish Stout dark the shadow of Dortmunder U.Brewed
+    in the Shadow of the Dortmunder U this beer is perfect to be enjoyed in the winter.
+    S
 abv: 5.8
 ibu: 31
 og: 13.804682033152062
