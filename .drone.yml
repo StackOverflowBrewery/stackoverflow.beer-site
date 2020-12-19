@@ -16,7 +16,7 @@ steps:
 - name: build pages including drafts
   image: dereulenspiegel/hugo-arm:0.79.0
   commands:
-  - /usr/local/bin/hugo -D --baseUrl https://preview.stackoverflow.beer
+  - /usr/local/bin/hugo -F -D --baseUrl https://preview.stackoverflow.beer
   when:
     branch:
       exclude:
