@@ -61,8 +61,12 @@ bestellte ich recht schnell den Brauheld 30L.
 
 Der Brauheld besteht aus relativ dünnen Edelstahlblechen. Er macht zwar nicht den Eindruck, dass er sofort
 auseinanderfällt. Aber nach dem Auspacken wird relativ schnell klar, dass das eher ein Gerät für ein paar Jahre
-und nicht für die nächsten Jahrzehnte ist. Am Malzkorb sind viele scharfe Grate, an denen man sich schnell
-bei der Reinigung verletzt. Das Rücklaufrohr an der Seite war nicht richtig festgezogen und leckte ein wenig.
+und nicht für die nächsten Jahrzehnte ist. 
+{{< img "IMG_20201219_141423.jpg" "Die Haltenasen am Malzkorb sind sehr scharfkantig" >}}
+Am Malzkorb sind viele scharfe Grate, an denen man sich schnell
+bei der Reinigung verletzt. 
+{{< img "IMG_20201219_141446.jpg" "Die Füße des Malzkorbs sind ebenfalls scharfkantig und wirken nicht sehr stabil" >}}
+Das Rücklaufrohr an der Seite war nicht richtig festgezogen und leckte ein wenig.
 Generell empfiehlt es sich solche Systeme immer erstmal mit Wasser zu testen.
 Die Anleitung ist um ehrlich zu sein nicht der Rede wert. Wichtige Informationen stehen da eigentlich nicht drin.
 Wie der Ablauf mit einem solchen System aussieht und worauf man achten muss erfährt wesentlich besser aus
@@ -74,6 +78,14 @@ Der Brauheld macht Würze. Und das für relativ wenig Geld. Das sind vermutlich 
 10 Suden hängen geblieben sind. Out of the box kann der Brauheld leider viele Probleme verursachen und einen Sud
 habe ich sogar mitten beim Maischen abbrechen müssen. Aber wenn man die Schwachstellen kennt, kann man mit dem Gerät
 arbeiten.
+
+### Mehrstufiges Läutern
+
+Im Gegensatz zu vielen anderen Malzrohrsystemen hat der Brauheld zwei Ebenen von Haltenasen am Malzrohr.
+Dadurch kann man quasi in zwei Stufen läutern und so das Geplätscher und damit den Sauerstoffeintrag
+eventuell reduzieren.
+
+{{< img "IMG_20201219_141520.jpg" "Das Mazrohr" >}}
 
 ### Schmeiß den Filter weg
 
@@ -87,9 +99,13 @@ gehe sogar davon aus, dass das Trockenlaufen durch einen verstopften Filter gef�
 ### Anti-Burn-Circulation
 
 Die Anti-Burn-Circulation ist in der Theorie eine gute Idee. Ein Teil der zurückgeführten Würze wird dabei
-nicht durch das Rohr nach oben gepumpt sonder direkt unten wieder in den Brauheld gespeist. Die so entstehende
+nicht durch das Rohr nach oben gepumpt sonder direkt unten wieder in den Brauheld gespeist.
+{{< img "IMG_20201219_141544.jpg" "Kugelventil um die Anti-Burn-Circulation zu steuern" >}}
+Die so entstehende
 Strömung soll die Heizelemente frei von feinen Partikeln halten und somit das Anbrennen verhindern. Leider
-ist an dem Ausgang dafür im Topfinneren keine Düse oder ähnliches. Dadurch wirkt die Strömung nur in einem kleinen
+ist an dem Ausgang dafür im Topfinneren keine Düse oder ähnliches. 
+{{< img "IMG_20201219_141602.jpg" "Ausgang der Anti-Burn-Circulation im Topfinneren" >}}
+Dadurch wirkt die Strömung nur in einem kleinen
 Bereich. Die Erfahrung zeigt aber auch, dass eine gefühlvolle Regulierung der Heizleistung wesentlich besser
 Anbrennen vorbeugt. Wenn ihr also auch wegen Anti-Burn-Circulation zwischen dem Brauheld und einem anderen System
 schwankt, nehmt das andere System. Man braucht sie eigentlich und sie wirkt nur auf ca. einem Viertel der
