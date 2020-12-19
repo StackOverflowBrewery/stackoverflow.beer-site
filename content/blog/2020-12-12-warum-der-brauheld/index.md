@@ -2,8 +2,8 @@
 title = "Warum der Brauheld?"
 description = "Wie habe ich mich für den Brauheld entschieden und würde ich das wieder tun?"
 author = "Till Klocke"
-date = "2020-12-07T13:18:05+01:00"
-publishdate = "2020-12-12T15:30:00+01:00"
+date = "2020-12-21T08:18:05+01:00"
+publishdate = "2020-12-21T08:30:00+01:00"
 tags = ["Brauheld","Test","Malzrohrsysteme","Ausrüstung"]
 categories = ["Test","Review"]
 comments = false
@@ -31,7 +31,7 @@ Bastelherausforderungen.
 
 Die Braueule und Braumeister hatten sich seit meiner ersten Recherche preislich nicht relevant bewegt.
 Allerdings haben sich mit dem Grainfather und einigen anderen mittlerweile andere Hersteller auf dem
-Markt etabliert. Malzrohrsysteme wurden von immer mehr Herstellern und unterschiedlicher Qualität
+Markt etabliert. Malzrohrsysteme wurden von immer mehr Herstellern in unterschiedlicher Qualität
 gebaut. Dabei wurde schnell klar, dass die meisten Geräte immer irgendwelche Rebrands aus chinesischer 
 Fertigung sind (so auch der Klarstein Brauheld, Mundschenk etc,).
 
@@ -39,8 +39,8 @@ Fertigung sind (so auch der Klarstein Brauheld, Mundschenk etc,).
 
 Bei der Kaufentscheidung darf auch der Aspekt "Community" nicht vernachlässigt werden. Denn die 
 Malzrohrsysteme (egal wie gut sie sind), lösen nicht immer alle Probleme. Das fängt mit kleinen
-Problemen an wie "Was mache ich eigentlich mit dem nasse, heißen, klebrigen Malzrohr nach dem Läutern"
-und kann bis hin zu sinnvollen Modifikationen am Gerät selbst gehen. Am Brewfather wird z.B. gerne
+Problemen an wie "Was mache ich eigentlich mit dem nassen, heißen, klebrigen Malzrohr nach dem Läutern"
+und kann bis hin zu sinnvollen Modifikationen am Gerät selbst gehen. Am Grainfather wird z.B. gerne
 der Anschluss am Rückflussrohr umgebaut, was so vom Hersteller nazürlich nicht vorgesehen ist.
 
 Bevor man sich für ein Gerät entscheidet, sollte also ein Blick auf die verschiedenen Foren und 
@@ -49,7 +49,7 @@ mit Neulingen umgegangen wird und ob man sich dort generell wohl fühlt.
 
 ## Mein Weg zum Brauheld
 
-Der Brewfather war zum "ausprobieren" der Malzrohrwelt ein wenig zu teuer, also hielt nach günstigeren
+Der Grainfather war zum "ausprobieren" der Malzrohrwelt ein wenig zu teuer, also ich hielt nach günstigeren
 Systemen Ausschau. In Deutschland landet man da schnell bei Klartstein, die unter eigener Marke verschiedene
 Systeme aus chinesischer Fertigung vertreiben. Der Mundschenk ist bis heute vermutlich das verbreiteste davon.
 
@@ -84,8 +84,10 @@ arbeiten.
 Im Gegensatz zu vielen anderen Malzrohrsystemen hat der Brauheld zwei Ebenen von Haltenasen am Malzrohr.
 Dadurch kann man quasi in zwei Stufen läutern und so das Geplätscher und damit den Sauerstoffeintrag
 eventuell reduzieren.
-
 {{< img "IMG_20201219_141520.jpg" "Das Mazrohr" >}}
+Inwiewit der Sauerstoffeintrag beim Läutern eine Rolle spielt ist in der Hobbybrauerszene ein bisschen umstritten.
+Bisher war ich aber schon froh, das Plätschern beim Läutern reduzieren zu können. Allerdings würde
+ich hiervon keine Kaufentscheidung abhängig machen.
 
 ### Schmeiß den Filter weg
 
@@ -94,7 +96,8 @@ ist sehr feinmaschig, was spätestens beim Hopfenseihen nach dem Whirlpool für 
 schnell mit Hopfenpartikeln zusetzt. Aber auch beim Maischen kann es passieren, dass beim Einmaischen zuviel
 Mehl durch das untere Sieb des Malzrohres rutscht und den Filter zusetzt. 
 Theoretisch kann dies die Pumpe gefährden. Persönlich habe ich damit aber bisher keine Probleme gehabt und
-gehe sogar davon aus, dass das Trockenlaufen durch einen verstopften Filter gefährlicher ist.
+gehe sogar davon aus, dass das Trockenlaufen durch einen verstopften Filter gefährlicher ist. Daher halte
+ich den Bazookafilter für vollommen überflüssig und benutze ihn auch nicht mehr.
 
 ### Anti-Burn-Circulation
 
@@ -102,14 +105,15 @@ Die Anti-Burn-Circulation ist in der Theorie eine gute Idee. Ein Teil der zurüc
 nicht durch das Rohr nach oben gepumpt sonder direkt unten wieder in den Brauheld gespeist.
 {{< img "IMG_20201219_141544.jpg" "Kugelventil um die Anti-Burn-Circulation zu steuern" >}}
 Die so entstehende
-Strömung soll die Heizelemente frei von feinen Partikeln halten und somit das Anbrennen verhindern. Leider
+Strömung soll die Heizelemente frei von feinen Partikeln halten und somit ein Anbrennen verhindern. Leider
 ist an dem Ausgang dafür im Topfinneren keine Düse oder ähnliches. 
 {{< img "IMG_20201219_141602.jpg" "Ausgang der Anti-Burn-Circulation im Topfinneren" >}}
 Dadurch wirkt die Strömung nur in einem kleinen
-Bereich. Die Erfahrung zeigt aber auch, dass eine gefühlvolle Regulierung der Heizleistung wesentlich besser
-Anbrennen vorbeugt. Wenn ihr also auch wegen Anti-Burn-Circulation zwischen dem Brauheld und einem anderen System
-schwankt, nehmt das andere System. Man braucht sie eigentlich und sie wirkt nur auf ca. einem Viertel der
+Bereich. Die Erfahrung zeigt aber auch, dass eine gefühlvolle Regulierung der Heizleistung wesentlich besser einem
+Anbrennen vorbeugt. Wenn ihr also auch wegen der Anti-Burn-Circulation zwischen dem Brauheld und einem anderen System
+schwankt, nehmt das andere System. Man braucht sie eigentlich nicht und sie wirkt nur auf ca. einem Viertel der
 beheizten Fläche.
+
 Dabei ist ein System wie eine Anti-Burn-Circulation auch nur Symptonbekämpfung. Eigentlich sollte man vernünftig
 dimensionierte Heizelemente erwarten, die keine zu hohe Hitzedichte haben. 
 
@@ -117,19 +121,21 @@ dimensionierte Heizelemente erwarten, die keine zu hohe Hitzedichte haben.
 
 Die Bedienung des Brauheld ist auch nicht unbedingt etwas, dass ich als Erfolg oder Pluspunkt beschreiben würde.
 Sie erinnert stellenweise eher an die Tastendrückrituale aus Videorekorder-Zeiten. Sie macht das Gerät nicht
-unbrauchbar, aber ist weder komfortabel noch intuitiv. Es können leider auch nur vier Schritte programmiert werden.
-Mehr wäre zwar wünschenswert, aber kann nach 4 durchlaufenen Schritten auch ohne Probleme weitere Schritte 
+unbrauchbar, aber ist weder komfortabel noch intuitiv. 
+{{< img "IMG_20201219_141716.jpg" "Bedienfeld des Brauheld" >}}
+Es können leider auch nur vier Schritte programmiert werden.
+Mehr wäre zwar wünschenswert, aber man kann nach 4 durchlaufenen Schritten auch ohne Probleme weitere Schritte 
 programmieren und starten. Komfortabel und durchdacht ist anders, aber es verhindert komplexere Rezepte zumindest
-nicht. Ein App-Anbdingun per WiFi oder Bluetooth gibt es übrigens natürlich nicht.
+nicht. Eine App-Anbdindung per WiFi oder Bluetooth gibt es übrigens natürlich nicht.
 
 ### Kochen nur mit externen Timer
 
-Für das Hopfenkochen kann man zwar auch einen Schritt mit Timer programmieren, aber uns hat das nie richtig
+Für das Hopfenkochen kann man zwar auch einen Schritt mit Timer programmieren, aber bei uns hat das nie richtig
 funktioniert. Auf unserer Höhe kocht Wasser bei 99,7°C. Am Brauheld kann ich 99°C oder 100°C als Zieltemperatur
 einstellen. Stelle ich 99°C ein, fängt der Timer zwar an zu zählen, aber ich komme kaum in ein wallendes Kochen.
 Für helle Biere kann das sogar ganz gut sein, aber man hat dann natürlich eine geringere Verdunstung als eigentlich
 erwartet. 100°C hingegen werden natürlich nie erreicht. Mittlerweile arbeite ich immer mit einem externen Timer
-(Brewfather, Handyuhr, Eieruhr), stelle den Brauheld auf 100°C Zieltemperatur mit 1200 - 1600 Watt Heizleistung.
+(Brewfather, Handyuhr, Eieruhr) und stelle den Brauheld auf 100°C Zieltemperatur mit 1200 - 1600 Watt Heizleistung.
 Ohne selbst einen Grainfather zu besitzen, denke ich mal, dass dieser hier sinnvoller agiert. Zumindest habe ich
 bei einer kurzen Suche keine Beschwerden über ein solches Verhalten finden können.
 
@@ -137,12 +143,12 @@ bei einer kurzen Suche keine Beschwerden über ein solches Verhalten finden kön
 
 Hat man das Hopfenkochen, den Whirlpool etc. geschafft, muss die Würze auch irgendwie aus dem Brauheld wieder raus.
 Dieser hat dazu einen Ablasshahn mit einem Schnellanschluss, so dass man schnell die Pumpe abkoppeln kann.
-Aber dazu muss der Brauheld entweder höher stehn als das Zielgefäß oder man benötigt eine zweite Pumpe.
-Höher stellen ist nicht optimal, da man ja nach dem Maischen das Mazrohr rausziehen muss. Auch beider 30L-Variante
-bringt das einige Kilogramm auf die Waage, so dass man für Herausheben auf einen Tritt oder Stuhl steigen muss.
+Aber dazu muss der Brauheld entweder höher stehen als das Zielgefäß oder man benötigt eine zweite Pumpe.
+Höher stellen ist nicht optimal, da man ja nach dem Maischen das Mazrohr rausziehen muss. Selbst bei der 30L-Variante
+bringt das einige Kilogramm auf die Waage, so dass man für das Herausheben auf einen Tritt oder Stuhl steigen muss.
 Eine zweite Pumpe klingt aber auch nicht allzu sinnig, da der Brauheld ja eine eigene Pumpe hat. Die kann man aber
 nur nutzen sollte man heiße Würze direkt in das Zielgefäß pumpen wollen.
-Der Rücklaufarm ist mit einem M12x1-Gewinde versehen, was recht exotisch ist. Dadurch ist sehr schwer dort andere
+Der Rücklaufarm ist mit einem M12x1-Gewinde versehen, was recht exotisch ist. Dadurch ist es sehr schwer dort andere
 Dinge anzuschließen. Und die Saugkraft der Pumpe ist auch zu schwach um z.B. einen Plattenwürzekühler zwischen
 Auslaufhahn und Pumpe anzuschließen. Es hat sich also anscheinend niemand Gedanken darum gemacht was nach dem
 Hopfenkochen passieren soll. Systeme wie der Grainfather sind da wesentlich durchdachter.
@@ -150,10 +156,14 @@ Hopfenkochen passieren soll. Systeme wie der Grainfather sind da wesentlich durc
 ### Niemand weiß wieviel Würze du hast
 
 Wenn man ein wenig Erfahrung im Brauen hat, beginnt man seine Rezepte recht exakt durchzurechnen. Mit dem Brauheld 
-wird das allerdings sehr schwierig. Die geprägte Literskale im innern ist während des Kochens recht schwer
-abzulesen. Das ist aber zum Glück nicht schlimm, da sie auch vollkommen falsch ist. Das Volumen vor und nach dem
+wird das allerdings sehr schwierig. Die geprägte Literskala im Innern ist während des Kochens recht schwer
+abzulesen. 
+{{< img "IMG_20201219_141627.jpg" "Geprägte Literskala neben der neu geäzten" >}}
+Das ist aber zum Glück nicht schlimm, da sie auch vollkommen falsch ist. Das Volumen vor und nach dem
 Hopfenkochen zu bestimmen ist dadurch nicht möglich. Auch die Verdunstung kann man nicht ablesen, da die Skala nicht
-einfach nur verschoben, sondern einfach komplett falsch ist.
+einfach nur verschoben, sondern einfach komplett falsch ist. Wie man auf dem Bild erkennen kann, habe ich daher
+den Brauheld selbst ausgelitert und eine neue Skala geätzt. Wie das geht und was man dabei beachten sollte,
+werde ich in einem eigenen Artikel beschreiben.
 
 ## Würde ich ihn wieder kaufen?
 
