@@ -18,7 +18,7 @@ der Speidel Braumeister und die Brumas Braueule waren damals verfügbar. Aber pr
 sie nie in (für mich) interessanten Regionen.
 
 In den letzten Jahren hat sich aber einiges an dieser Situation geändert, so dass ich auch von
-einer Selbstbau-Anlage weg wollte.  Das Basteln macht mir zwar Spaß, aber wenn andere Probleme
+einer Selbstbau-Anlage weg wollte.  Das Basteln macht mir zwar Spaß, aber wenn Andere Probleme
 besser lösen, als ich das kann, dann nehme ich diese Lösung gerne und konzentriere mich auf andere
 Bastelherausforderungen.
 
@@ -46,7 +46,7 @@ mit Neulingen umgegangen wird und ob man sich dort generell wohl fühlt.
 
 Der Grainfather war zum "Ausprobieren" der Malzrohrwelt ein wenig zu teuer, also hielt ich nach günstigeren
 Systemen Ausschau. In Deutschland landet man da schnell bei Klartstein, die unter eigener Marke verschiedene
-Systeme aus chinesischer Fertigung vertreiben. Der Mundschenk ist bis heute vermutlich der verbreitetste davon.
+Systeme aus chinesischer Fertigung vertreiben. Der Mundschenk ist bis heute vermutlich das verbreitetste davon.
 
 Was mich beim Brauheld jedoch reizte war die "Anti-Burn-Circlulation", doch dazu später mehr. Da sich Brauheld
 und Mundschenk imho hauptsächlich in Details unterscheiden und ich die Anti-Burn-Circulation interessant fand,
@@ -58,7 +58,7 @@ Der Brauheld besteht aus relativ dünnen Edelstahlblechen. Er macht zwar nicht d
 auseinanderfällt. Aber nach dem Auspacken wird relativ schnell klar, dass das eher ein Gerät für ein paar Jahre
 und nicht für die nächsten Jahrzehnte ist. 
 {{< img "IMG_20201219_141423.jpg" "Die Haltenasen am Malzkorb sind sehr scharfkantig" >}}
-Am Malzkorb sind viele scharfe **Grate**, an denen man sich schnell
+Am Malzkorb sind viele scharfe Grate, an denen man sich schnell
 bei der Reinigung verletzt. 
 {{< img "IMG_20201219_141446.jpg" "Die Füße des Malzkorbs sind ebenfalls scharfkantig und wirken nicht sehr stabil" >}}
 Das Rücklaufrohr an der Seite war nicht richtig festgezogen und leckte ein wenig.
@@ -86,13 +86,12 @@ ich hiervon keine Kaufentscheidung abhängig machen.
 
 ### Schmeiß den Filter weg
 
-Innen am Auslasshahn sitzt ein Filter. Diesen sollte man erst gar nicht einbauen. Dieser sogenannte **Bazookafilter**
-ist sehr feinmaschig, was spätestens beim Hopfenseihen nach dem Whirlpool für Probleme sorgt, da er sich sehr
+Innen am Auslasshahn sitzt ein Filter. Diesen sollte man erst gar nicht einbauen. Dieser sogenannte Bazookafilterist sehr feinmaschig, was spätestens beim Hopfenseihen nach dem Whirlpool für Probleme sorgt, da er sich sehr
 schnell mit Hopfenpartikeln zusetzt. Aber auch beim Maischen kann es passieren, dass beim Einmaischen zu viel
 Mehl durch das untere Sieb des Malzrohres rutscht und den Filter zusetzt. 
 Theoretisch kann dies die Pumpe gefährden. Persönlich habe ich damit aber bisher keine Probleme gehabt und
 gehe sogar davon aus, dass das Trockenlaufen durch einen verstopften Filter gefährlicher ist. Daher halte
-ich den **Bazookafilter** für vollkommen überflüssig und benutze ihn auch nicht mehr.
+ich den Bazookafilter für vollkommen überflüssig und benutze ihn auch nicht mehr.
 
 ### Anti-Burn-Circulation
 
@@ -101,7 +100,7 @@ nicht durch das Rohr nach oben gepumpt, sondern wird direkt unten wieder in den 
 {{< img "IMG_20201219_141544.jpg" "Kugelventil um die Anti-Burn-Circulation zu steuern" >}}
 Die so entstehende
 Strömung soll die Heizelemente frei von feinen Partikeln halten und somit ein Anbrennen verhindern. Leider
-ist an dem Ausgang dafür im Topfinneren keine Düse oder ähnliches **vorhanden**.
+ist an dem Ausgang dafür im Topfinneren keine Düse oder ähnliches vorhanden.
 {{< img "IMG_20201219_141602.jpg" "Ausgang der Anti-Burn-Circulation im Topfinneren" >}}
 Dadurch wirkt die Strömung nur in einem kleinen
 Bereich. Die Erfahrung zeigt aber auch, dass eine gefühlvolle Regulierung der Heizleistung wesentlich besser einem
