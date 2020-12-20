@@ -1,5 +1,5 @@
 +++
-draft = true
+draft = false
 toc = true
 author = "Till Klocke"
 removeBlur = false
