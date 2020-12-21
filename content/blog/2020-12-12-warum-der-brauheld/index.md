@@ -7,7 +7,7 @@ date = "2020-12-21T08:18:05+01:00"
 comments = false
 title = "Warum der Brauheld?"
 description = "Wie habe ich mich für den Brauheld entschieden und würde ich das wieder tun?"
-tags = ["Brauheld", "Test", "Malzrohrsysteme", "Ausrüstung"]
+tags = ["Brauheld", "Test", "Malzrohrsysteme", "Ausrüstung", "Klarstein"]
 categories = ["Test", "Review"]
 publishdate = "2020-12-21T08:30:00+01:00"
 +++
