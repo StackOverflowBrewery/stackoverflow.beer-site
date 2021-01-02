@@ -39,6 +39,13 @@ kind: pipeline
 type: docker
 name: build-page
 steps:
+- name: fetch
+  image: drone/git
+  commands:
+  - git fetch --tags
+  - git submodule init
+  - git submodule update --recursive --remote
+
 - name: build pages
   image: dereulenspiegel/hugo-arm:0.79.0
   commands:
