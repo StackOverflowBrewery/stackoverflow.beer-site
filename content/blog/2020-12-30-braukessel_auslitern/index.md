@@ -159,7 +159,7 @@ Zuletzt werden die kleinen Markierungen genauso wie die großen geätzt.
 
 ## Ende und aus
 
-{{ img "IMG_20201219_141627.jpg" "Selbstgeätzte Literskala neben der geprägten" }}
+{{< img "IMG_20201219_141627.jpg" "Selbstgeätzte Literskala neben der geprägten" >}}
 Am Ende sollte das nun wie bei mir aussehen. Wobei ich hoffe, dass ihr ein wenig mehr ätzen geübt habt und
 eure Skale gleichmäßiger aussieht. Auf dem Foto ist das nicht so gut erkennen, live ist die Skala aber sehr
 gut zu erkennen und besser abzulesen als die geprägte.
