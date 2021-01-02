@@ -77,6 +77,9 @@ kind: pipeline
 type: docker
 name: default
 
+clone:
+  disable: true
+
 steps: []
 
 depends_on:
