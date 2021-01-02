@@ -3,7 +3,7 @@ platform:
   arch: arm
 kind: pipeline
 type: docker
-name: default
+name: build-preview
 
 steps:
 - name: fetch
@@ -16,13 +16,7 @@ steps:
 - name: build pages including drafts
   image: dereulenspiegel/hugo-arm:0.79.0
   commands:
-  - /usr/local/bin/hugo -F -D --baseUrl https://preview.stackoverflow.beer
-  when:
-    branch:
-      exclude:
-      - main
-      include:
-      - draft/*
+  - /usr/local/bin/hugo --cleanDestinationDir -F -D --baseUrl https://preview.stackoverflow.beer
 
 - name: Deploy to uberspace preview
   image: appleboy/drone-scp
@@ -36,17 +30,19 @@ steps:
     rm: true
     key:
       from_secret: uberspace_key
-  when:
-    branch:
-      exclude:
-      - main
-      include:
-      - draft/*
 
+---
+platform:
+  os: linux
+  arch: arm
+kind: pipeline
+type: docker
+name: build-page
+steps:
 - name: build pages
   image: dereulenspiegel/hugo-arm:0.79.0
   commands:
-  -  /usr/local/bin/hugo
+  -  /usr/local/bin/hugo --cleanDestinationDir
   when:
     branch: 
     - main
@@ -66,11 +62,23 @@ steps:
   when:
     branch: 
     - main
+---
+platform:
+  os: linux
+  arch: arm
+kind: pipeline
+type: docker
+name: default
+
+steps: []
+
+depends_on:
+- build-preview
+- build-page
 
 trigger:
   event:
     exclude:
-    - promote
     - cron
 ---
 platform:
@@ -109,6 +117,10 @@ steps:
     remote_name: origin
     branch: main
     local_ref: main
+
+depends_on:
+- build-preview
+- build-page
 
 trigger:
   event:
