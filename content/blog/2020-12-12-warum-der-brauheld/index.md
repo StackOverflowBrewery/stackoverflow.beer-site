@@ -10,6 +10,11 @@ description = "Wie habe ich mich für den Brauheld entschieden und würde ich da
 tags = ["Brauheld", "Test", "Malzrohrsysteme", "Ausrüstung", "Klarstein"]
 categories = ["Test", "Review"]
 publishdate = "2020-12-21T08:30:00+01:00"
+[[images]]
+  src = "/blog/2020-12-12-warum-der-brauheld/IMG_20201219_141716.jpg"
+  alt = "Brauheld Display"
+  stretch = "stretchH"
++++
 +++
 {{< toc >}}
 
