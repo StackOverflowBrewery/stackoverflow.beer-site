@@ -10,6 +10,10 @@ description = "Braukessel auslitern und eigene Skala ätzen"
 tags = ["Brauheld", "Malzrohrsysteme", "Ausrüstung", "Klarstein", "HowTo"]
 categories = ["Anleitung"]
 publishdate = "2021-01-01T08:30:00+01:00"
+[[images]]
+  src = "/blog/2020-12-30-braukessel_auslitern/IMG_20201219_141627.jpg"
+  alt = "geätzte Literskala"
+  stretch = "stretchH"
 +++
 {{< toc >}}  
 
