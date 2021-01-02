@@ -13,7 +13,7 @@ publishdate = "2021-01-02T16:56:37+01:00"
 [[images]]
   src = "/blog/2021-01-02-tankvolli-wuerzehalter/IMG_20210102_162711.jpg"
   alt = "Anschlusshalter am Tank Volli"
-  stretch = "stretchH"
+  stretch = "c"
 +++
 
 Seit Ende 2020 besitze ich einen Tank Volli von Braupartner. Aktuell versuche ich diesen Gärtank
