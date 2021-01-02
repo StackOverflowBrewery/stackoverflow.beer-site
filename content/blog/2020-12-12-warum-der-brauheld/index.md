@@ -15,7 +15,6 @@ publishdate = "2020-12-21T08:30:00+01:00"
   alt = "Brauheld Display"
   stretch = "stretchH"
 +++
-+++
 {{< toc >}}
 
 Als ich mit dem Bierbrauen begann, gab es kaum fertige Systeme für Heimbrauer. Allenfalls
