@@ -3,13 +3,13 @@ draft = false
 toc = false
 author = "Till Klocke"
 removeBlur = false
-date = "2021-01-03T013:30:00+01:00"
+date = "2021-01-03T13:30:00+01:00"
 comments = false
-title = "Neue Füße für den Tank Vollo"
+title = "Neue Füße für den Tank Volli"
 description = "Ein einfaches Design um zu verhindern, dass der Tank Volli Holzböden verkratzt"
 tags = ["TankVolli", "Fermenter", "3D-Druck", "Braupartner", "Gärtank", "Kaltbereich"]
 categories = ["Anleitung"]
-publishdate = "2021-01-03T013:30:00+01:00"
+publishdate = "2021-01-03T13:30:00+01:00"
 [[Bastelei]]
   src = "/blog/2021-01-03-fuesse-fuer-den-tank-volli/IMG_20210103_105104.jpg"
   alt = "neue Füße für den Tank Volli"
