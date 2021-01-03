@@ -1,6 +1,6 @@
 +++
-draft = true
-toc = true
+draft = false
+toc = false
 author = "Till Klocke"
 removeBlur = false
 date = "2021-01-03T013:30:00+01:00"
