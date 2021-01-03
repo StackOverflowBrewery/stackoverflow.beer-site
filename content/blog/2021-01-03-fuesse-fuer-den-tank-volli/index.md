@@ -8,9 +8,9 @@ comments = false
 title = "Neue Füße für den Tank Volli"
 description = "Ein einfaches Design um zu verhindern, dass der Tank Volli Holzböden verkratzt"
 tags = ["TankVolli", "Fermenter", "3D-Druck", "Braupartner", "Gärtank", "Kaltbereich"]
-categories = ["Anleitung"]
+categories = ["Bastelei"]
 publishdate = "2021-01-03T13:30:00+01:00"
-[[Bastelei]]
+[[images]]
   src = "/blog/2021-01-03-fuesse-fuer-den-tank-volli/IMG_20210103_105104.jpg"
   alt = "neue Füße für den Tank Volli"
   stretch = "c"
