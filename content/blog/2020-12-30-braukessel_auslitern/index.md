@@ -12,7 +12,7 @@ categories = ["Anleitung"]
 publishdate = "2021-01-06T14:20:00+01:00"
 [[images]]
   src = "/blog/2020-12-30-braukessel_auslitern/IMG_20201219_141627.jpg"
-  alt = "geätzte Literskala"
+  alt = "selbst geätzte Literskala"
   stretch = "c"
 +++
 {{< toc >}}  
