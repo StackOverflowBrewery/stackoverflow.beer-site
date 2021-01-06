@@ -99,6 +99,13 @@ Schichthöhe von 0,1mm in PLA entschieden. Das hat soweit ganz gut geklappt.
 Alternativ kann so eine Schablone aber vermutlich auch mittels eines feinen Messers aus Kunststoffolie o.ä.
 ausgeschnitten werden.
 
+*[Nachtrag 06.01.2021, danke für die Hinweise hierauf]*
+Aber natürlich hat sich die Hobbybrauercommunity auch schon viele Gedanken zum Thema Literskalen gemacht und
+im [Hobbybrauerforum](https://hobbybrauer.de/forum/viewtopic.php?p=393739&fbclid=IwAR3EL6_Iwg_oyccRQUqNjr8KpIhY2vgBMJYEVDOiacw5n5q7n5DxUQOFzbg#p393739)
+oder auf [Facebook](https://www.facebook.com/PlotterHibo/) gibt es die Möglichkeit vorgefertigte Literskalen
+für die allermeisten Kessel und Gefäße zu bestellen. Und sollte trotz der großen Auswahl dort nichts passendes
+dabei sein kann man auch neue Skalen anfragen.
+
 ### Auslitern
 
 {{< img "IMG_20200819_182618.jpg" "Klebeband zum Auslitern an der Kesselwand" >}}
