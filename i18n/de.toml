@@ -37,3 +37,7 @@
 [yeast]
   one = "Hefe"
   other = "Hefen"
+
+[reading_time]
+  one = "Lesezeit: 1 Minute"
+  other = "Lesezeit: {{ .Count }} Minuten"
