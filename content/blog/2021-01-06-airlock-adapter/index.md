@@ -13,7 +13,7 @@ publishdate = "2021-01-06T16:30:00+01:00"
 [[images]]
   src = "/blog/2021-01-06-airlock-adapter/IMG_20210106_142832.jpg"
   alt = "selbst geätzte Literskala"
-  stretch = "h"
+  stretch = "v"
 +++
 
 Das Blubbern im Gärspund ist zwar kein guter Indikator für echte Gäraktivität, trotzdem kann das Blubbern
