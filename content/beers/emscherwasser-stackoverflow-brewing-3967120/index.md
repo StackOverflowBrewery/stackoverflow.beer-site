@@ -1,6 +1,7 @@
 ---
 title: Emscherwasser
-description: 'A Märzen with high drinkability which is a bit more amber than expected. '
+description: A Märzen with high drinkability which is a bit more amber than expected.
+    S
 abv: 5.5
 ibu: 27
 og: 12.624824257047067
