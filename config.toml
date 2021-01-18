@@ -35,7 +35,7 @@ theme = "hugo-future-imperfect-slim"
     iOSColor            = "#ffffff"
 
   [params.header]
-    navbarTitle         = "StackOberflow Brewery"
+    navbarTitle         = "StackOverflow Brewery"
     dynamicTitles       = true
     searchMenu          = true
     shareMenu           = true
