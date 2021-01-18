@@ -3,7 +3,7 @@ title: Hundt Murr
 description: 'Inspired by the red beer of Nuremberg, this is a slightly lighter even
     more crushable version. A mix of the aromatic beers from the southern parts of
     Germany and the highly crushable beers preferred by the "Malochers" of the Ruhrgebiet. '
-abv: 4.7
+abv: 4
 ibu: 33
 og: 11.912080756223986
 fg: 0
