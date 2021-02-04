@@ -2,7 +2,7 @@
 title: Bitter Sweet Summer
 description: 'A refreshing Beer for the Covid-19 Summer. Made with sweet and bitter
     orange peels. '
-abv: 4.6
+abv: 4.7
 ibu: 10
 og: 11.4348928079921
 fg: 0
