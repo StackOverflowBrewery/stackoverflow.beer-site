@@ -1,7 +1,7 @@
 ---
 title: Bachelorette
 description: 'A very basic version of a Belgian Saison. Refreshing and crushable. '
-abv: 6.6
+abv: 6.7
 ibu: 28
 og: 13.333941235608222
 fg: 0
