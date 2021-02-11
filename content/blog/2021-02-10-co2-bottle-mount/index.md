@@ -25,4 +25,4 @@ Oder man möchte einfach eine portable Flasche für die nächste Gartenparty hab
 bei mir nicht im regelmäßigen Gebrauch sind, wollte ich sie möglichst platzsparend unterbringen. Daher
 habe ich sie einfach mit 3D-gedruckten Halterungen unter ein Ikea Ivar Regalbrett geschraubt.
 
-**[Link zum Bauteil](https://www.prusaprinters.org/prints/51139-adapter-14-bsp-to-fermentation-airlock)**
+**[Link zum Bauteil](https://www.prusaprinters.org/prints/55561-holder-for-05kg-co2-bottles)**
