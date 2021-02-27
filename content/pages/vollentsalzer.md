@@ -9,5 +9,8 @@ comments = false
 removeBlur = false
 +++
 
-Test
+Als Ergänzung zum [Artikel](https://friediesbrauhaus.blog/2020/05/04/vollentsalzer-selbtsbau/) und
+[Video](https://youtu.be/Hag_8lsIKxg) von Friedis Brauhaus, gibt es hier die nötigen Berechnungen
+statt in einer Exceltabelle, direkt im Browser.
+
 {{< entsalzer >}}
