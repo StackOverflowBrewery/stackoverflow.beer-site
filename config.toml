@@ -106,6 +106,7 @@ theme = "hugo-future-imperfect-slim"
     name              = "Wasserberechnungen"
     identifier        = "watercalc"
     url               = "/pages/vollentsalzer/"
+    pre               = "<i class='fas fa-tint'></i>"
     weight            = 6
 
   [[menu.main]]
