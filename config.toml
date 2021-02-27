@@ -103,6 +103,12 @@ theme = "hugo-future-imperfect-slim"
     weight            = 4
 
   [[menu.main]]
+    name              = "Wasserberechnungen"
+    identifier        = "watercalc"
+    url               = "/pages/vollentsalzer/"
+    weight            = 6
+
+  [[menu.main]]
     name              = "Kategorien"
     identifier        = "categories"
     url               = "/categories/"

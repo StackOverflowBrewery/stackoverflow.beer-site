@@ -1,0 +1,338 @@
+<div style="display: flex; flex-flow: row wrap; justify-content: space-around;">
+  <div>
+    <div name="kationen">
+      <h2>Kationen (in ppm)</h2>
+      <fieldset>
+        <label>Calcium</label>
+        <input id="calciumIn" type="number" name="calcium" tabindex="1" step="0.01" max="999" required autofocus onchange="update()"/>
+      </fieldset>
+      <fieldset>
+        <label>Magnesium</label>
+        <input id="magnesiumIn" type="number" name="magnesium" tabindex="2" step="0.01" mac="999" required onchange="update()"/>
+      </fieldset>
+      <fieldset>
+        <label>Natrium</label>
+        <input id="natriumIn" type="number" name="natrium" tabindex="3" step="0.01" required onchange="update()"/>
+      </fieldset>
+    </div>
+
+    <div name="anionen">
+      <h2>Anionen (in ppm)</h2>
+      <fieldset>
+        <label>Hydrogenkarbonat</label>
+        <input id="hydrogencarbonatIn" type="number" name="hydrogencarbonat" tabindex="4" step="0.01" required onchange="update()"/>
+      </fieldset>
+      <fieldset>
+        <label>Chlorid</label>
+        <input id="chloridIn" type="number" name="chlorid" tabindex="5" step="0.01" required onchange="update()"/>
+      </fieldset>
+      <fieldset>
+        <label>Sulfat</label>
+        <input id="sulfatIn" type="number" name="sulfat" tabindex="6" step="0.01" required onchange="update()"/>
+      </fieldset>
+    </div>
+
+    <div>
+      <table>
+        <tr>
+          <td>Gesamthärte</td>
+          <td id="totalhardnessBefore">-</td>
+        </tr>
+        <tr>
+          <td>Karbonathärte</td>
+          <td id="carbharndessBefore">-</td>
+        </tr>
+        <tr>
+          <td>Ca-Härte</td>
+          <td id="cahardnessBefore">-</td>
+        </tr>
+        <tr>
+          <td>Mg-Härte</td>
+          <td id="mghardnessBefore">-</td>
+        </tr>
+        <tr>
+          <td>Nichtcarbonathärte</td>
+          <td id="noncarbharndessBefore">-</td>
+        </tr>
+        <tr>
+          <td>SO4/Cl-Verhältnis</td>
+          <td id="so4clratioBefore">-</td>
+        </tr>
+        <tr>
+          <td>Restalkalität</td>
+          <td id="alkalityBefore">-</td>
+        </tr>
+      </table>
+
+    </div>
+  </div>
+
+  <div name="conductivity">
+    <h2>Leitfähigkeit (in µS)</h2>
+    <fieldset>
+      <label>Vorher</label>
+      <input type="number" id="conductbefore" name="conductbefore" tabindex="7" step="1" required onchange="update()"/>
+    </fieldset>
+    <fieldset>
+      <label>Nachher</label>
+      <input type="number" id="conductafter" name="conductafter" tabindex="8" step="1" required onchange="update()"/>
+    </fieldset>
+  </div>
+
+  <div>
+    <h2>Entsalztes Wasser</h2>
+    <div style="display: flex; flex-flow: row wrap; justify-content: flex-start;">
+      <div>
+        <div>
+          <h2>Kationen</h2>
+          <table>
+            <tr>
+              <td>Calcium</td>
+              <td id="calciumAfter">-</td>
+            </tr>
+            <tr>
+              <td>Magnesium</td>
+              <td id="magnesiumAfter">-</td>
+            </tr>
+            <tr>
+              <td>Natrium</td>
+              <td id="natriumAfter">-</td>
+            </tr>
+          </table>
+        </div>
+        <div>
+          <h2>Anionen</h2>
+          <table>
+            <tr>
+              <td>Hydrogencarbonat</td>
+              <td id="hydrogencarbonatAfter">-</td>
+            </tr>
+            <tr>
+              <td>Chlroid</td>
+              <td id="chloridAfter">-</td>
+            </tr>
+            <tr>
+              <td>Sulfat</td>
+              <td id="sulfatAfter">-</td>
+            </tr>
+          </table>
+        </div>
+      </div>
+
+      <div>
+        <table>
+          <tr>
+            <td>Gesamthärte</td>
+            <td id="totalhardnessAfter">-</td>
+          </tr>
+          <tr>
+            <td>Karbonathärte</td>
+            <td id="carbharndessAfter">-</td>
+          </tr>
+          <tr>
+            <td>Ca-Härte</td>
+            <td id="cahardnessAfter">-</td>
+          </tr>
+          <tr>
+            <td>Mg-Härte</td>
+            <td id="mghardnessAfter">-</td>
+          </tr>
+          <tr>
+            <td>Nichtcarbonathärte</td>
+            <td id="noncarbharndessAfter">-</td>
+          </tr>
+          <tr>
+            <td>SO4/Cl-Verhältnis</td>
+            <td id="so4clratioAfter">-</td>
+          </tr>
+          <tr>
+            <td>Restalkalität</td>
+            <td id="alkalityAfter">-</td>
+          </tr>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+  var calciumIn = document.getElementById('calciumIn');
+  var magnesiumIn = document.getElementById('magnesiumIn');
+  var natriumIn = document.getElementById('natriumIn');
+  var hydrogencarbonatIn = document.getElementById('hydrogencarbonatIn');
+  var chloridIn = document.getElementById('chloridIn');
+  var sulfatIn = document.getElementById('sulfatIn');
+  
+  var totalhardnessBefore = document.getElementById('totalhardnessBefore');
+  var carbharndessBefore = document.getElementById('carbharndessBefore');
+  var cahardnessBefore = document.getElementById('cahardnessBefore');
+  var mghardnessBefore = document.getElementById('mghardnessBefore');
+  var noncarbharndessBefore = document.getElementById('noncarbharndessBefore');
+  var so4clratioBefore = document.getElementById('so4clratioBefore');
+  var alkalityBefore = document.getElementById('alkalityBefore');
+
+  var conductivityBefore = document.getElementById('conductbefore');
+  var conductivityAfter = document.getElementById('conductafter');
+
+  var calciumAfterElem = document.getElementById('calciumAfter');
+  var magnesiumAfterElem = document.getElementById('magnesiumAfter');
+  var natriumAfterElem = document.getElementById('natriumAfter');
+  var hydrogencarbonatAfterElem = document.getElementById('hydrogencarbonatAfter');
+  var chloridAfterElem = document.getElementById('chloridAfter');
+  var sulfatAfterElem = document.getElementById('sulfatAfter');
+
+  var totalhardnessAfter = document.getElementById('totalhardnessAfter');
+  var carbharndessAfter = document.getElementById('carbharndessAfter');
+  var cahardnessAfter = document.getElementById('cahardnessAfter');
+  var mghardnessAfter = document.getElementById('mghardnessAfter');
+  var noncarbharndessAfter = document.getElementById('noncarbharndessAfter');
+  var so4clratioAfter = document.getElementById('so4clratioAfter');
+  var alkalityAfter = document.getElementById('alkalityAfter');
+
+  var totalHardness = undefined;
+  var carbonHardness = undefined;
+  var calciumHardness = undefined;
+  var mgHardness = undefined;
+  var noncarbonHardness = undefined;
+  var so4clRatio = undefined;
+  var alkality = undefined;
+
+  var conductivityRatio = undefined;
+  
+  function calculateTotalHardness(calcium, magnesium) {
+    return (calcium * 1.4 + magnesium * 2.307)/10
+  }
+
+  function calculateCarbonHardness(outputElem, hydrogencarbonat) {
+    var carbonHardness = undefined
+    if(hydrogencarbonat) {
+      carbonHardness = (hydrogencarbonat / 61.017) * 2.8;
+    } else {
+      carbonHardness = undefined;
+    }
+    updateHardnessElement(outputElem, carbonHardness);
+    return carbonHardness;
+  }
+
+  function caclculateCalciumHardness(outputElem, calcium) {
+    var calciumHardness = undefined;
+    if(calcium) {
+      calciumHardness = calcium / 7.14;
+    } else {
+      calciumHardness = undefined;
+    }
+    updateHardnessElement(outputElem, calciumHardness);
+    return calciumHardness;
+  }
+  
+  function updateTotalHardness(outputElem, calcium, magnesium) {
+    var totalHardness = undefined;
+    if(calcium && magnesium) {
+      totalHardness = calculateTotalHardness(calcium, magnesium);
+    } else {
+      totalHardness = undefined;
+    }
+    updateHardnessElement(outputElem, totalHardness);
+    return totalHardness;
+  }
+
+  function calculateMgHardness(outputElem, magnesium) {
+    var mgHardness = undefined;
+    if(magnesium) {
+      mgHardness = magnesium / 4.34;
+    } else {
+      mgHardness = undefined;
+    }
+    updateHardnessElement(outputElem, mgHardness);
+    return mgHardness;
+  }
+
+  function calculateNonCarbonHardness(outputElem, totalHardness, carbonHardness) {
+    var noncarbonHardness = undefined;
+    if (totalHardness && carbonHardness) {
+      noncarbonHardness = totalHardness - carbonHardness;
+      
+    } else {
+      noncarbonHardness = undefined;
+    }
+    updateHardnessElement(outputElem, noncarbonHardness);
+    return noncarbonHardness;
+  }
+
+  function updateHardnessElement(elem, value) {
+    if(value) {
+      elem.innerText = value.toFixed(2) + '° dH';
+    } else {
+      elem.innerText = '-';
+    }
+  }
+
+  function calculateSO4CLRation(outputElem, sulfat, chlorid) {
+    var so4clRatio = undefined;
+    if(sulfat && chlorid) {
+      so4clRatio = sulfat / chlorid;
+    } else {
+      so4clRatio = undefined;
+    }
+    updateHardnessElement(outputElem, so4clRatio);
+    return so4clRatio;
+  }
+
+  function calculateAlkality(outputElem,carbonhardness, calciumHardness, mgHardness) {
+    var alkality = undefined;
+    if(carbonhardness && calciumHardness && mgHardness) {
+      alkality = carbonhardness - calciumHardness / 3.5 - mgHardness / 7;
+    }
+    updateHardnessElement(outputElem, alkality);
+    return alkality;
+  }
+
+  function updateAfterSalt(inElem, outElem) {
+    if(inElem.value) {
+      var val = inElem.value * conductivityRatio
+      outElem.innerText = val.toFixed(2);
+    } else {
+      outElem.innerText = '-';
+    }
+  }
+
+  function updateBeforeValues() {
+    calciumHardness = caclculateCalciumHardness(cahardnessBefore, calciumIn.value);
+    carbonHardness = calculateCarbonHardness(carbharndessBefore, hydrogencarbonatIn.value);
+    totalHardness = updateTotalHardness(totalhardnessBefore, calciumIn.value, magnesiumIn.value);
+    mgHardness = calculateMgHardness(mghardnessBefore, magnesiumIn.value);
+    noncarbonHardness = calculateNonCarbonHardness(noncarbharndessBefore, totalHardness, carbonHardness);
+    so4clRatio = calculateSO4CLRation(so4clratioBefore, sulfatIn.value, chloridIn.value);
+    alkality = calculateAlkality(alkalityBefore, carbonHardness, calciumHardness, mgHardness);
+  }
+
+  function updateAfterValues() {
+    if(conductivityBefore.value && conductivityAfter.value) {
+      conductivityRatio = conductivityAfter.value / conductivityBefore.value;
+    } else {
+      conductivityRatio = undefined;
+    }
+
+    if(conductivityRatio) {
+      updateAfterSalt(calciumIn, calciumAfterElem);
+      updateAfterSalt(magnesiumIn, magnesiumAfterElem);
+      updateAfterSalt(natriumIn, natriumAfterElem);
+      updateAfterSalt(hydrogencarbonatIn, hydrogencarbonatAfterElem);
+      updateAfterSalt(chloridIn, chloridAfterElem);
+      updateAfterSalt(sulfatIn, sulfatAfterElem);
+
+      var caHardness = caclculateCalciumHardness(cahardnessAfter, calciumIn.value * conductivityRatio);
+      var carbonHardness = calculateCarbonHardness(carbharndessAfter, hydrogencarbonatIn.value * conductivityRatio);
+      var totalHardness = updateTotalHardness(totalhardnessAfter, calciumIn.value * conductivityRatio, magnesiumIn.value * conductivityRatio);
+      var mgHardness = calculateMgHardness(mghardnessAfter, magnesiumIn.value * conductivityRatio);
+      var noncarbHardness = calculateNonCarbonHardness(noncarbharndessAfter, totalHardness, carbonHardness);
+      var so4clratio = calculateSO4CLRation(so4clratioAfter, sulfatIn.value * conductivityRatio, chloridIn.value * conductivityRatio);
+      var alkality = calculateAlkality(alkalityAfter, carbonHardness, caHardness, mgHardness);
+    }
+  }
+
+  function update() {
+    updateBeforeValues();
+    updateAfterValues();
+  }
+</script>
