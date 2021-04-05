@@ -143,7 +143,7 @@ die Schläuche nicht zu lange zu lassen, denn sie müssen nicht überall in den 
 Sie müssen lediglich zu den typischen Positionen an denen Fässer stehen reichen. Das kann recht 
 schnell mit einem Stück Schlauch ausprobiert werden.
 
-## Muss ich mir wegen Wärmeverlusten viel Sorgen machen?
+## Muss ich mir wegen Wärmeverlusten Sorgen machen?
 
 Unserer Meinung nach eher nicht. Der Kompressor unseres Kühlschranks springt gefühlt nicht
 häufiger an als zuvor. Auch kurze Messungen bestätigen, dass nicht allzu viel Energie durch
@@ -154,7 +154,7 @@ Wärmeleiter (auch wenn das in der Brauerei manchmal sehr praktisch wäre).
 {{< img "PXL_20210314_124245562.jpg" "Temperaturmessung am NC-Anschluss" >}}
 {{< img "PXL_20210314_124339196.jpg" "Temperaturmessung an den inneliegende Anschlussteilen" >}}
 
-## Flexibel einsatzbar
+## Flexibel einsetzbar
 
 Einer der großen Vorzüge gegenüber der eher simplen Variante "Zapfhahn durch die Tür" ist
 die Flexibilität, die wir mit diesen Anschlüssen haben. Wir haben hier bereits schon
