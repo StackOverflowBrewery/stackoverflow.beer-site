@@ -17,22 +17,24 @@ publishdate = "2021-04-05T12:30:00+01:00"
 +++
 
 Kegerator oder auch Zapfkühlschränke sind so etwas wie ein natürlicher Entwicklungsschritt im Leben
-eines Hobbybrauers. Zumindest wenn sich der Hobbybrauer irgendwann dazu entschieden hat, seine Biere in
-Fässer statt Flaschen abzufüllen. Jeder, der einen eigene Party- oder gar Brauraum hat, ist hier 
+eines Hobbybrauers/einer Hobbybrauerin. Zumindest wenn sich der/die Hobbybrauer/in irgendwann dazu 
+entschieden hat, Biere in
+Fässer statt Flaschen abzufüllen. Jeder, der einen eigenen Party- oder gar Brauraum hat, ist hier 
 vermutlich bereits fein raus und verfügt bereits über eine Zapfanlage an die (notfalls per Adapter)
 die eigenen Fässer angeschlossen werden können.
 
-Reicht diese Zapfanlage nicht, oder brennt die Leidenschaft zu basteln mal wieder besonders heiß, ist
+Reicht diese Zapfanlage nicht, ist keine Zapfanlage vorhanden, oder brennt die Leidenschaft 
+zu basteln mal wieder besonders heiß, ist
 ein Kegerator ein schönes Projekt, was mit entsprechender Vorbereitung auch an einem Wochenende
 durchgeführt werden kann.
 
 ## Kegerator, Keezer? Ich versteh nur Zapfanlage
 
-Begriffe wie Kegerator und Keezer werden schnell gefunden und gerade EinsteigerInnen werden davon
+Begriffe wie `Kegerator` und `Keezer` werden schnell gefunden und gerade EinsteigerInnen werden davon
 häufig verwirrt. Kegerator und Keezer sind Wortschöpfungen aus dem englischsprachigen Raum. `Keezer`
 setzt sich aus den Wörtern `Keg` (Fass) und `Freezer` (Gefriertruhe) zusammen und bezeichnet so sehr 
 treffend eine zur Zapfanlage umgebaute Tiefkühltruhe.
-`Kegerator` setzt sich aus den Wörtern `Keg` (Fass) und `Refridgerator` (Kühlschrank) zusammen und 
+`Kegerator` setzt sich aus den Wörtern `Keg` (Fass) und `Refrigerator` (Kühlschrank) zusammen und 
 beschreibt damit schön kompakt, was in Deutschland oft als `Zapfkühlschrank` bezeichnet wird.
 Die englischen Begriffe werden von vielen einfach als griffiger empfunden.
 
@@ -54,12 +56,12 @@ Für uns sprachen mehrere Gründe gegen diese Variante. Wir wollten nicht, dass 
 sofort auch als Kegerator erkennbar ist. Stattdessen wollten wir die Zapfanlage etwas unauffälliger 
 in die Küche integrieren. Unsere 2kg-CO2-Flasche sollte außerhalb des Kegerator stehen, weswegen wir
 nach einer eleganten Möglichkeit gesucht haben eine CO2-Leitung in den Kegerator zu legen. Außerdem
-hatten wir ein Bedenken wegen der möglichen Wärmeverluste, wenn der Kühlschrank angebohrt wird. Daher
+hatten wir Bedenken wegen der möglichen Wärmeverluste, wenn der Kühlschrank angebohrt wird. Daher
 wollten wir die Bohrlöcher so klein wie möglich halten.
 
 ## Zapfhähne im Schrank
 
-Um sinnvoll planen zu können haben wir zuerst entschieden wo wir denn gerne die Zapfhähne wollen 
+Um sinnvoll planen zu können haben wir zuerst entschieden wo wir denn gerne die Zapfhähne haben wollen 
 würden, wenn nicht in der Tür des Kegerator? Da wir neben dem Kegerator eh ein Regal mit Biergläsern
 und Bierstachel haben, war das ein geeigneter Ort für die Zapfhähne.
 {{< img "IMG_20201227_143735.jpg" "Ausziehbarer Zapfhahn im Schrank" >}}
@@ -79,24 +81,27 @@ eher darum zu zeigen, wie flexibel man diese außerhalb des Kegerators befestige
 ## Fassanschlüsse am Kühlschrank
 
 Um außerhalb des Kegerators liegende Zapfhähne anzuschließen und auch eine elegante Möglichkeit für 
-den Gasanschluss zu haben wollte ich ganz gerne sinnvolle Schnellanschlüsse haben. Idealerweise sollten
+den Gasanschluss zu haben wollten wir ganz gerne sinnvolle Schnellanschlüsse haben. Idealerweise sollten
 diese dichtend und zuverlässig sein. Die meisten HobbybrauerInnen werden solche Anschlüsse bereits 
-benutze oder zumindest gesehen haben. Die Rede ist natürlich von NC- oder auch Ball Lock-Anschlüssen.
+benutzen oder zumindest gesehen haben. Die Rede ist natürlich von NC- oder auch Ball Lock-Anschlüssen.
 {{< img "IMG_20201227_151310.jpg" "Ball-Lock-Anschlüsse an der Kühlschrankaußenwand" >}}
-Diese sind in der Hobbybrauerwelt recht verbreitet und wir setzen für unsere Fässer eh schon auf diese
+Diese sind in der HobbybrauerInne-Welt recht verbreitet und wir setzen für unsere Fässer eh 
+schon auf diese
 Anschlüsse. Wir haben also auch Verschleißteile wie Dichtungen immer vorrätig.
-Innen führen wir das ganze auf DioTight-Schlauchanschlüsse. Für einen Anschluss am Kühlschrank
+Innen führen wir das ganze auf DuoTight-Schlauchanschlüsse. Für einen Anschluss am Kühlschrank
 benötigt ihr:
 
 Werkzeug:
 * Stufenbohrer (muss eine 14mm-Stufe haben)
 * 14mm Holzbohrer (für die Isolierung und den Kunststoff im Inneren)
 
-Damit bohrt ihr dann mindestens zwei Löcher an geeigneten Stellen in den Kühlschrank.
+Damit bohrt ihr dann mindestens zwei Löcher an geeigneten Stellen in den Kühlschrank. Wir haben
+den Stufenbohrer für die äußere Blechwand verwendet und den Holzbohrer für den Rest.
 Bei uns war das leider nur weiter vorne sinnvoll, ich hätte die Konstruktion gerne hinten
-gehabt. Unserer Meinung ist es sinnvoll die Höhe der Löcher so zu wählen, dass die Bierleitung
-kontinuierlich ansteigt und nicht zwischendrin nach unten geführt werden muss. Das verhindert
-unserer Meinung nach mögliche Zapfprobleme.
+gehabt, aber das gab die Konstrution der innen Kunststoffverkleidung unseres Kühlschranks leider 
+nicht her. Unserer Meinung ist es sinnvoll die Höhe der Löcher so zu wählen, dass die Bierleitung
+kontinuierlich ansteigt und nicht zwischendrin nach unten geführt werden muss. Das verhindert mögliche
+Zapfprobleme (zumindest glauben wir das).
 
 Teile:
 * 75mm 1/4-Zoll BSP Vollgewinderohr aus Edelstahl (gibt es z.B. auf [AliExpress](https://de.aliexpress.com/item/4000029628808.html?spm=a2g0s.9042311.0.0.27424c4dpdfJKV))
@@ -109,12 +114,12 @@ Teile:
 * Dichtmittel wie PTFE-Band oder Loctite 577
 {{< img "PXL_20210123_135247918.jpg" "Einzelteile der Wanddurchführung" >}}
 
-Den NC-Anschluss, das Vollgewinderohr und den 90° Winkel werden am besten als erstes für
+Der NC-Anschluss, das Vollgewinderohr und der 90° Winkel werden am besten als erstes für
 das gewählte Dichtmittel vorbereitet. Normalerweise bedeutet das einfach Reinigen und
 Entfetten. Wir haben dann zuerst den NC-Anschluss auf das Gewinderohr geschraubt, dann die
 Unterlegscheibe und danach die Dichtung auf das Gewinderohr geschoben.
 
-Den NC-Anschluss sollte bereits hier so aufgeschraubt werden, dass er dicht ist. Dann kann man
+Der NC-Anschluss sollte bereits hier so aufgeschraubt werden, dass dieser dicht ist. Dann kann man
 das Rohr von außen durch das vorher gebohrte Loch stecken. Von innen werden nun wieder Dichtung
 und Unterlegscheibe auf das Gewinderohr geschoben. Nun wird das ganze von innen mit der 1/4-Zoll
 Mutter gekontert. Es sollte dabei darauf geachtet werden, dass die Wand des Kühlschranks nicht
@@ -126,7 +131,7 @@ entfettet, um eine dichte Verbindung mit dem 90° Winkel zu erreichen. Vergesst 
 nicht (hier am Winkel und am NC-Anschluss) das Dichtmittel passend zu dimensionieren, da hier am Ende
 durchaus mal Drücke von 2-3 Bar anliegen können. Wir versuchen in solchen Systemen immer alles
 am PRV (Pressure Relief Valve) auszurichten. An unserem Druckminderer öffnet das bei 3,5 Bar
-(wie vermutlich bei euch auch). Es besteht hier zwar keine akute Gefahr, aber nur es ist ein gutes
+(wie vermutlich bei euch auch). Es besteht hier zwar keine akute Gefahr, aber es ist ein gutes
 Gefühl Druckspitzen (z.B. durch einen defekten Druckminderer) auch ohne Sauerei überstehen zu können.
 {{< img "IMG_20201227_150119.jpg" "Kühlschrankwand mit NC-Anschlussdurchführung" >}}
 
@@ -136,7 +141,7 @@ in den 90° Winkel eingeschraubt werden. Das ganze haben wir für den CO2-Anschl
 Zum Schluss müssen die Schläuche noch abgelängt und installiert werden. Hier empfhielt es sich
 die Schläuche nicht zu lange zu lassen, denn sie müssen nicht überall in den Kühlschrank reichen.
 Sie müssen lediglich zu den typischen Positionen an denen Fässer stehen reichen. Das kann recht 
-schnell provisorisch einfach ausprobiert werden.
+schnell mit einem Stück Schlauch ausprobiert werden.
 
 ## Muss ich mir wegen Wärmeverlusten viel Sorgen machen?
 
