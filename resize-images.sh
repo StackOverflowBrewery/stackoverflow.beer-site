@@ -1,2 +1,2 @@
 #!/bin/bash
-magick mogrify -resize 800x600 content/blog/**/*.jpg
+magick mogrify -resize 800x600 $1/*.jpg
